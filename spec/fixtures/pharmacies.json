@@ -1,0 +1,28 @@
+{
+  "pharmacies": [
+    {
+      "id": 27313,
+      "name": "CVS PHARMACY",
+      "address_1": "2160 N HIGH ST",
+      "address_2": "",
+      "city": "COLUMBUS",
+      "state": "OH",
+      "zip": "43201",
+      "zip_code": "43201",
+      "npi": "5555555555",
+      "ncpdp": "5555555"
+    },
+    {
+      "id": 116043,
+      "name": "CVS PHARMACY",
+      "address_1": "2160 N HIGH ST",
+      "address_2": "",
+      "city": "COLUMBUS",
+      "state": "OH",
+      "zip": "43201",
+      "zip_code": "43201",
+      "npi": "5555555555",
+      "ncpdp": "5555555"
+    }
+  ]
+}

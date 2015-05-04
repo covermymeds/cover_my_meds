@@ -1,0 +1,11 @@
+{
+  "tokens": [
+    {
+    "id": "nhe44fu4g22upqqgstea",
+    "request_id": "NT4HJ4",
+    "href": "https://staging.api.covermymeds.com/requests/tokens/nhe44fu4g22upqqgstea",
+    "html_url": "https://navinet.covermymeds.com/request/view/NT4HJ4?access_token_id=nhe44fu4g22upqqgstea",
+    "pdf_url": "https://navinet.covermymeds.com/request/send/NT4HJ4?access_token_id=nhe44fu4g22upqqgstea"
+  }
+  ]
+}

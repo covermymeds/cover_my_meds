@@ -1,0 +1,1023 @@
+{ 
+  "request_page": {
+    "data": {
+      "pa_request": {
+        "Custom_ref": null,
+        "bin": "",
+        "days_supply": "",
+        "display_name": "James Kirk",
+        "drug_DDID": "063776",
+        "drug_DDID_text": "Allegra 180MG tablets",
+        "drug_frequency": "qD",
+        "drug_quantity": "30",
+        "drug_start": null,
+        "drug_strength": "",
+        "expedited": null,
+        "explanation": null,
+        "group_id": "",
+        "icd10": null,
+        "icd9": null,
+        "ncpdp": null,
+        "ndc": null,
+        "npi": "1234567890",
+        "office_contact": null,
+        "office_fax": "555-555-5555",
+        "office_phone": "",
+        "patient_address_city": "London",
+        "patient_address_state": "OH",
+        "patient_address_street": "221 Baker St.\nApt B",
+        "patient_address_zip": "43210",
+        "patient_dob": "10/01/1971",
+        "patient_fname": "Nathan",
+        "patient_lname": "Jones",
+        "patient_member_number": "",
+        "patient_mobile": null,
+        "patient_phone": "614-555-1212",
+        "patient_sex": "m",
+        "pcn": "",
+        "prescriber_city": "Riverside",
+        "prescriber_state": "OH",
+        "prescriber_street": "1 Starship Way",
+        "prescriber_zip": "52327",
+        "prescription_date": null,
+        "quantity_dispensed": null,
+        "rationale": null,
+        "state_id": "OH",
+        "icd9_0": "",
+        "icd9_1": "",
+        "icd9_2": "",
+        "failed_med_0": "",
+        "failed_med_1": "",
+        "failed_med_2": "",
+        "failed_med_3": "",
+        "failed_med_4": "",
+        "failed_med_5": "",
+        "failed_med_6": "",
+        "failed_med_7": "",
+        "failed_med_8": "",
+        "failed_med_9": "",
+        "patient_middle_name": "",
+        "patient_address_street_1": "221 Baker St.",
+        "patient_address_street_2": "Apt B",
+        "prescriber_first_name": "James",
+        "prescriber_last_name": "Kirk",
+        "prescriber_speciality": "",
+        "prescriber_clinic_name": "",
+        "prescriber_street_1": "1 Starship Way",
+        "prescriber_street_2": "",
+        "pharmacy_name": "",
+        "pharmacy_phone": "",
+        "pharmacy_address_street": "",
+        "pharmacy_address_street_1": "",
+        "pharmacy_address_street_2": "",
+        "pharmacy_address_city": "",
+        "pharmacy_address_state": "",
+        "pharmacy_address_zip": "",
+        "request_priority": false,
+        "refill": "1",
+        "daw": "false"
+      }
+    },
+    "forms": {
+      "pa_request": {
+        "question_sets": [
+          {
+            "title": "Nathan Jones (TPBNPV)",
+            "questions": [
+              {
+                "question_type": "STATEMENT",
+                "question_text": null,
+                "coded_reference": {
+                  "qualifier": "CoverMyMeds",
+                  "code": "prior-auth-header",
+                  "ref": "CoverMyMeds:prior-auth-header:1:",
+                  "code_system_version": "1",
+                  "id": null
+                },
+                "help_text": null,
+                "question_id": "02486958-aff9-42f4-b10d-ae1a9c214583",
+                "default_next_question_id": "patient_fname",
+                "content_plain": "Status: Sent to Plan on: 2014-10-06\nDrug:   Allegra 180MG tablets\nForm:   Anthem Blue Cross Blue Shield Non-Preferred Medications Request Form",
+                "content_html": "<table>\n  <tbody>\n    <tr>\n      <td rowspan=\"3\"><img src=\"https://www.covermymeds.com/forms/pdf/thumbs/90/blue_cross_blue_shield_georgia_general_15257.jpg\"></td>\n      <td>Status: Sent to Plan on: 2014-10-06</td>\n    </tr>\n    <tr>\n      <td>Drug: Allegra 180MG tablets</td>\n    </tr>\n    <tr>\n      <td>Form: Anthem Blue Cross Blue Shield Non-Preferred Medications Request Form</td>\n    </tr>\n  </tbody>\n</table>"
+              }
+            ]
+          },
+          {
+            "title": "Patient details",
+            "questions": [
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "patient_fname",
+                "question_text": "First Name",
+                "default_next_question_id": "patient_lname",
+                "flag": "REQUIRED",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "patient_lname",
+                "question_text": "Last Name",
+                "default_next_question_id": "patient_member_number",
+                "flag": "REQUIRED",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "patient_member_number",
+                "question_text": "Patient ID #",
+                "default_next_question_id": "patient_dob",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "patient_dob",
+                "question_text": "Date of Birth (mm/dd/yyyy)",
+                "default_next_question_id": "patient_phone",
+                "flag": "REQUIRED",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "patient_phone",
+                "question_text": "Phone #",
+                "default_next_question_id": "patient_email",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "patient_email",
+                "question_text": "Email Address",
+                "default_next_question_id": "Custom_ref",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "Custom_ref",
+                "question_text": "Your reference",
+                "default_next_question_id": "display_name",
+                "flag": null,
+                "help_text": "e.g., medical record #, billing #, Rx #, or your 3 initials.",
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              }
+            ]
+          },
+          {
+            "title": "Prescriber details",
+            "questions": [
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "display_name",
+                "question_text": "Physician Name",
+                "default_next_question_id": "prescriber_specialty",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "prescriber_specialty",
+                "question_text": "Specialty",
+                "default_next_question_id": "npi",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "npi",
+                "question_text": "NPI #",
+                "default_next_question_id": "prescriber_dea",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "prescriber_dea",
+                "question_text": "DEA #",
+                "default_next_question_id": "office_phone",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "office_phone",
+                "question_text": "Phone #",
+                "default_next_question_id": "office_fax",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "office_fax",
+                "question_text": "Fax #",
+                "default_next_question_id": "prescriber_street",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "prescriber_street",
+                "question_text": "Address: Address",
+                "default_next_question_id": "prescriber_city",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "prescriber_city",
+                "question_text": "Address: City",
+                "default_next_question_id": "prescriber_state",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "CHOICE",
+                "question_id": "prescriber_state",
+                "question_text": "Address: State",
+                "default_next_question_id": "prescriber_zip",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "choices": [
+                  {
+                    "choice_text": "",
+                    "choice_id": "Not set",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "AL",
+                    "choice_id": "Alabama",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "AK",
+                    "choice_id": "Alaska",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "AZ",
+                    "choice_id": "Arizona",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "AR",
+                    "choice_id": "Arkansas",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "CA",
+                    "choice_id": "California",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "CO",
+                    "choice_id": "Colorado",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "CT",
+                    "choice_id": "Connecticut",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "DE",
+                    "choice_id": "Delaware",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "FL",
+                    "choice_id": "Florida",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "GA",
+                    "choice_id": "Georgia",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "HI",
+                    "choice_id": "Hawaii",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "ID",
+                    "choice_id": "Idaho",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "IL",
+                    "choice_id": "Illinois",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "IN",
+                    "choice_id": "Indiana",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "IA",
+                    "choice_id": "Iowa",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "KS",
+                    "choice_id": "Kansas",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "KY",
+                    "choice_id": "Kentucky",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "LA",
+                    "choice_id": "Louisiana",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "ME",
+                    "choice_id": "Maine",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "MD",
+                    "choice_id": "Maryland",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "MA",
+                    "choice_id": "Massachusetts",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "MI",
+                    "choice_id": "Michigan",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "MN",
+                    "choice_id": "Minnesota",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "MS",
+                    "choice_id": "Mississippi",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "MO",
+                    "choice_id": "Missouri",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "MT",
+                    "choice_id": "Montana",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "NE",
+                    "choice_id": "Nebraska",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "NV",
+                    "choice_id": "Nevada",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "NH",
+                    "choice_id": "New Hampshire",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "NJ",
+                    "choice_id": "New Jersey",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "NM",
+                    "choice_id": "New Mexico",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "NY",
+                    "choice_id": "New York",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "NC",
+                    "choice_id": "North Carolina",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "ND",
+                    "choice_id": "North Dakota",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "OH",
+                    "choice_id": "Ohio",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "OK",
+                    "choice_id": "Oklahoma",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "OR",
+                    "choice_id": "Oregon",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "PA",
+                    "choice_id": "Pennsylvania",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "PR",
+                    "choice_id": "Puerto Rico",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "RI",
+                    "choice_id": "Rhode Island",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "SC",
+                    "choice_id": "South Carolina",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "SD",
+                    "choice_id": "South Dakota",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "TN",
+                    "choice_id": "Tennessee",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "TX",
+                    "choice_id": "Texas",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "UT",
+                    "choice_id": "Utah",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "VT",
+                    "choice_id": "Vermont",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "VI",
+                    "choice_id": "Virgin Islands",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "VA",
+                    "choice_id": "Virginia",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "WA",
+                    "choice_id": "Washington",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "DC",
+                    "choice_id": "Washington D.C.",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "WV",
+                    "choice_id": "West Virginia",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "WI",
+                    "choice_id": "Wisconsin",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "WY",
+                    "choice_id": "Wyoming",
+                    "next_question_id": null
+                  }
+                ],
+                "select_multiple": false
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "prescriber_zip",
+                "question_text": "Address: ZIP",
+                "default_next_question_id": "prescriber_email",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "prescriber_email",
+                "question_text": "Email Address",
+                "default_next_question_id": "date_rx",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              }
+            ]
+          },
+          {
+            "title": "Medical details",
+            "questions": [
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "date_rx",
+                "question_text": "Date of Rx",
+                "default_next_question_id": "prescription_sig",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "prescription_sig",
+                "question_text": "Directions",
+                "default_next_question_id": "drug_quantity",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "drug_quantity",
+                "question_text": "Quantity per 30 days",
+                "default_next_question_id": "icd9",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "icd9",
+                "question_text": "Diagnosis",
+                "default_next_question_id": "q1",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "CHOICE",
+                "question_id": "q1",
+                "question_text": "Patient has previously tried and failed 2 (two) preferred products: One of which is in the same specific drug class; the other product has the same indication as the product requested.",
+                "default_next_question_id": "q11",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "choices": [
+                  {
+                    "choice_text": "Yes",
+                    "choice_id": "q1_1",
+                    "next_question_id": "reference_0"
+                  },
+                  {
+                    "choice_text": "No",
+                    "choice_id": "q1_2",
+                    "next_question_id": null
+                  }
+                ],
+                "select_multiple": false
+              },
+              {
+                "question_type": "STATEMENT",
+                "question_id": "reference_0",
+                "default_next_question_id": "q11",
+                "question_text": null,
+                "help_text": null,
+                "content_plain": "Please indicate trials below.                                                                                                                                                                               ",
+                "content_html": "Please indicate trials below.                                                                                                                                                                               ",
+                "coded_reference": null
+              },
+              {
+                "question_type": "CHOICE",
+                "question_id": "q11",
+                "question_text": "For combination products: patient has tried 2 (two) preferred products: One of which is in the same specific class as at least one ingredient in the requested medication.",
+                "default_next_question_id": "q12",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "choices": [
+                  {
+                    "choice_text": "Yes",
+                    "choice_id": "q11_1",
+                    "next_question_id": "reference_1"
+                  },
+                  {
+                    "choice_text": "No",
+                    "choice_id": "q11_2",
+                    "next_question_id": null
+                  }
+                ],
+                "select_multiple": false
+              },
+              {
+                "question_type": "STATEMENT",
+                "question_id": "reference_1",
+                "default_next_question_id": "q12",
+                "question_text": null,
+                "help_text": null,
+                "content_plain": "Please indicate trials below.                                                                                                                                                                               ",
+                "content_html": "Please indicate trials below.                                                                                                                                                                               ",
+                "coded_reference": null
+              },
+              {
+                "question_type": "CHOICE",
+                "question_id": "q12",
+                "question_text": "For non-preferred antibiotics / anti-virals / anti-fungals: Patient has tried and failed on preferred antibiotic / anti-viral / anti-fungal product within the same route of administration.",
+                "default_next_question_id": "q13",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "choices": [
+                  {
+                    "choice_text": "Yes",
+                    "choice_id": "q12_1",
+                    "next_question_id": "reference_2"
+                  },
+                  {
+                    "choice_text": "No",
+                    "choice_id": "q12_2",
+                    "next_question_id": null
+                  }
+                ],
+                "select_multiple": false
+              },
+              {
+                "question_type": "STATEMENT",
+                "question_id": "reference_2",
+                "default_next_question_id": "q13",
+                "question_text": null,
+                "help_text": null,
+                "content_plain": "Please indicate trial below.                                                                                                                                                              ",
+                "content_html": "Please indicate trial below.                                                                                                                                                              ",
+                "coded_reference": null
+              },
+              {
+                "question_type": "CHOICE",
+                "question_id": "q13",
+                "question_text": "Patient has previously taken the requested non-preferred product for 6 months.",
+                "default_next_question_id": "q14",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "choices": [
+                  {
+                    "choice_text": "Yes",
+                    "choice_id": "q13_1",
+                    "next_question_id": "reference_3"
+                  },
+                  {
+                    "choice_text": "No",
+                    "choice_id": "q13_2",
+                    "next_question_id": null
+                  }
+                ],
+                "select_multiple": false
+              },
+              {
+                "question_type": "STATEMENT",
+                "question_id": "reference_3",
+                "default_next_question_id": "q14",
+                "question_text": null,
+                "help_text": null,
+                "content_plain": "Please indicate trial below.                                                                                                                                                                ",
+                "content_html": "Please indicate trial below.                                                                                                                                                                ",
+                "coded_reference": null
+              },
+              {
+                "question_type": "CHOICE",
+                "question_id": "q14",
+                "question_text": "Patient has a documented drug interaction.                                                                                                                                                                         ",
+                "default_next_question_id": "q15",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "choices": [
+                  {
+                    "choice_text": "Yes",
+                    "choice_id": "q14_1",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "No",
+                    "choice_id": "q14_2",
+                    "next_question_id": null
+                  }
+                ],
+                "select_multiple": false
+              },
+              {
+                "question_type": "CHOICE",
+                "question_id": "q15",
+                "question_text": "Patient has documented adverse drug experiences (side effects, adverse drug reaction).                                                                                                           ",
+                "default_next_question_id": "q2_1",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "choices": [
+                  {
+                    "choice_text": "Yes",
+                    "choice_id": "q15_1",
+                    "next_question_id": null
+                  },
+                  {
+                    "choice_text": "No",
+                    "choice_id": "q15_2",
+                    "next_question_id": null
+                  }
+                ],
+                "select_multiple": false
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "q2_1",
+                "question_text": "Please indicate trials:                                                                                                                                                                    : Product 1",
+                "default_next_question_id": "q2_2",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "q2_2",
+                "question_text": "Please indicate trials:                                                                                                                                                                    : Dates Tried",
+                "default_next_question_id": "q21_1",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "q21_1",
+                "question_text": "Product 2",
+                "default_next_question_id": "q21_2",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "FREE_TEXT",
+                "question_id": "q21_2",
+                "question_text": "Dates Tried",
+                "default_next_question_id": "exclusion_criteria",
+                "flag": null,
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "STATEMENT",
+                "question_id": "exclusion_criteria",
+                "default_next_question_id": "other_criteria",
+                "question_text": null,
+                "help_text": null,
+                "content_plain": "Exclusion criteria",
+                "content_html": "Exclusion criteria",
+                "coded_reference": null
+              }
+            ]
+          },
+          {
+            "title": "Rationale",
+            "questions": [
+              {
+                "question_type": "STATEMENT",
+                "question_id": "other_criteria",
+                "default_next_question_id": "explanation",
+                "question_text": null,
+                "help_text": null,
+                "content_plain": "Other criteria",
+                "content_html": "Other criteria",
+                "coded_reference": null
+              },
+              {
+                "question_type": "FREE_AREA",
+                "question_id": "explanation",
+                "question_text": "Explanation",
+                "default_next_question_id": "interactions",
+                "flag": "IMPORTANT",
+                "help_text": null,
+                "coded_reference": null,
+                "validations": [
+
+                ],
+                "placeholder": null
+              },
+              {
+                "question_type": "STATEMENT",
+                "question_id": "interactions",
+                "default_next_question_id": "END",
+                "question_text": null,
+                "help_text": null,
+                "content_plain": "Patient Drug History",
+                "content_html": "Patient Drug History",
+                "coded_reference": null
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "actions": [
+      {
+        "href": "/pa_requests/63/request_pages/Save",
+        "ref": "pa_request",
+        "method": "GET",
+        "title": "Save",
+        "display": "DEFAULT",
+        "orig_href": "https://api.covermymeds.com/request-pages/TPBNPV/save?pa_type=classic_xml&token_id=81cysd3zsoog8mvnpcm8&v=1",
+        "orig_method": "PUT"
+      },
+      {
+        "href": "/pa_requests/63/request_pages/Send%20to%20Plan",
+        "ref": null,
+        "method": "GET",
+        "title": "Send to Plan",
+        "display": "DEFAULT",
+        "orig_href": "https://api.covermymeds.com/request-pages/TPBNPV/fax?pa_type=classic_xml&token_id=81cysd3zsoog8mvnpcm8&v=1",
+        "orig_method": "GET"
+      },
+      {
+        "href": "/pa_requests/63/request_pages/Archive",
+        "ref": null,
+        "method": "GET",
+        "title": "Archive",
+        "display": "DEFAULT",
+        "orig_href": "https://api.covermymeds.com/request-pages/TPBNPV/archive?pa_type=classic_xml&token_id=81cysd3zsoog8mvnpcm8&v=1",
+        "orig_method": "GET"
+      },
+      {
+        "href": "/pa_requests/63/request_pages/Mark%20as%20Unsent",
+        "ref": "pa_request",
+        "method": "GET",
+        "title": "Mark as Unsent",
+        "display": "DEFAULT",
+        "orig_href": "https://api.covermymeds.com/request-pages/TPBNPV/mark_unsent?pa_type=classic_xml&token_id=81cysd3zsoog8mvnpcm8&v=1",
+        "orig_method": "PUT"
+      },
+      {
+        "href": "/pa_requests/63/request_pages/Delete",
+        "ref": null,
+        "method": "GET",
+        "title": "Delete",
+        "display": "DEFAULT",
+        "orig_href": "https://api.covermymeds.com/request-pages/TPBNPV/delete?pa_type=classic_xml&token_id=81cysd3zsoog8mvnpcm8&v=1",
+        "orig_method": "GET"
+      }
+    ],
+    "provided_coded_references": {
+    },
+    "validations": {
+    }
+  }
+}

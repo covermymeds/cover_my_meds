@@ -1,0 +1,44 @@
+{
+  "drugs": [
+    {
+    "id": "093563",
+    "gpi": "30042048100360",
+    "sort_group": null,
+    "sort_order": null,
+    "name": "Boniva",
+    "route_of_administration": "OR",
+    "dosage_form": "TABS",
+    "strength": "150",
+    "strength_unit_of_measure": "MG",
+    "full_name": "Boniva 150MG tablets",
+    "href": "https://staging.api.covermymeds.com/drugs/093563"
+  },
+  {
+    "id": "094563",
+    "gpi": "30042048100320",
+    "sort_group": null,
+    "sort_order": null,
+    "name": "Boniva",
+    "route_of_administration": "OR",
+    "dosage_form": "TABS",
+    "strength": "2.5",
+    "strength_unit_of_measure": "MG",
+    "full_name": "Boniva 2.5MG tablets",
+    "href": "https://staging.api.covermymeds.com/drugs/094563"
+  },
+  {
+    "id": "169220",
+    "gpi": "30042048102030",
+    "sort_group": null,
+    "sort_order": null,
+    "name": "Boniva",
+    "route_of_administration": "IV",
+    "dosage_form": "SOLN",
+    "strength": "3",
+    "strength_unit_of_measure": "MG/3ML",
+    "full_name": "Boniva 3MG/3ML solutions",
+    "href": "https://staging.api.covermymeds.com/drugs/169220"
+  }
+  ]
+}
+

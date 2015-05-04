@@ -1,0 +1,32 @@
+{
+   "eligibilities":[
+      {
+         "id":80430,
+         "member":{
+            "first_name":"John",
+            "middle_name":null,
+            "last_name":"Doe",
+            "address1":"130 E. Chestnut St",
+            "address2":"Suite 100",
+            "city":"Columbus",
+            "state":"OH",
+            "zip":"43215",
+            "date_of_birth":null,
+            "id_number":"dd1234567",
+            "gender":"M",
+            "pbm_unique_id":null
+         },
+         "coverage":{
+            "plan_id":"PLANID",
+            "group_id":"GROUPID",
+            "carrier_id":null,
+            "account_id":null,
+            "type":null,
+            "name":null,
+            "retail_benefit":false,
+            "formulary_name":null,
+            "formulary_id":null
+         }
+      }
+   ]
+}

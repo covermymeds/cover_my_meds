@@ -1,0 +1,16 @@
+{
+  "drug": {
+    "id": "001002",
+    "gpi": "60204080100315",
+    "sort_group": null,
+    "sort_order": null,
+    "name": "Ambien",
+    "route_of_administration": "OR",
+    "dosage_form": "TABS",
+    "strength": "10",
+    "strength_unit_of_measure": "MG",
+    "full_name": "Ambien 10MG tablets",
+    "href": "https://api.covermymeds.com/drugs/001002",
+    "representative_ndc": "00024542131"
+  }
+}

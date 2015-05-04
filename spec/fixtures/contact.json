@@ -1,0 +1,27 @@
+{
+  "contact": 
+  {
+    "id": "1",
+    "contact_type": "Patient",
+    "gender": "m",
+    "date_of_birth": "02/02/2002",
+    "first_name": "John",
+    "middle_name": "Alva",
+    "last_name": "Doe",
+    "phone": "5555555555",
+    "mobile": "5555555555",
+    "fax": "5555555555",
+    "email": "test@example.com",
+    "street": "High St.",
+    "city": "Columbus",
+    "state": "OH",
+    "zip": "43210",
+    "dea": "123456789",
+    "npi": "123456789",
+    "ncpdp": "123456789",
+    "tax_id": "123456789",
+    "medicare_id": "123456789",
+    "member_id": "123456789",
+    "specialty": "None"
+  }
+}
