@@ -11,7 +11,7 @@ describe 'Indicators API', integration: true do
   end
 
   it 'works', vcr: true do
-    response = client.post_indicators([{ drug_id: '183156' }])
-    expect(response.prescriptions.first[:drug_id]).to eq('183156')
+    response = client.post_indicators({ drug_id: '183156' })
+    expect(response.prescription.drug_id).to eq('183156')
   end
 end
