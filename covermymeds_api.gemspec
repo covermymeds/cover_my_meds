@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "railties"
 
   spec.add_runtime_dependency "rest-client", "~> 1.6"
   spec.add_runtime_dependency "hashie", "~> 2.0.2"
