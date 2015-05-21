@@ -4,12 +4,21 @@ module CoverMyMeds
 
     CURRENT_VERSION = 1
 
-    def post_indicators(prescriptions, patient = {}, payer = {}, version = CURRENT_VERSION)
-      params = { prescriptions: prescriptions, patient: patient, payer: payer }
+    def post_indicators(prescription: prescription, patient: patient, payer: {}, prescriber: {}, version: CURRENT_VERSION)
+      params = { prescription: prescription, prescriber: prescriber, patient: patient, payer: payer }
       data = indicators_request POST, params: { v: version, headers: { content_type: :json } } do
         params.to_json
       end
       Hashie::Mash.new(data)
     end
+
+    def search_indicators(prescriptions: prescriptions, patient: {}, payer: {}, prescriber: {}, version: CURRENT_VERSION)
+      params = { prescriptions: Array(prescriptions), prescriber: prescriber, patient: patient, payer: payer }
+      data = indicators_request POST, path: 'search/', params: { v: version, headers: { content_type: :json } } do
+        params.to_json
+      end
+      Hashie::Mash.new(data)
+    end
+
   end
 end
