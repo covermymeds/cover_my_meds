@@ -14,7 +14,6 @@ require 'pry'
 require 'support/webmock_strict'
 require 'securerandom'
 require 'support/vcr_setup'
-require 'support/webmock'
 require 'dotenv'
 Dotenv.load
 
