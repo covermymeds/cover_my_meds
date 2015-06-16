@@ -1,6 +1,6 @@
-require "covermymeds_api/version"
-require_relative 'covermymeds_api/meta'
-require_relative 'covermymeds_api/client'
+require "cover_my_meds/version"
+require_relative 'cover_my_meds/meta'
+require_relative 'cover_my_meds/client'
 
 require 'covermymeds_api/railtie' if defined?(Rails)
 

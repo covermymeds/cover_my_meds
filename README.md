@@ -7,7 +7,7 @@ CoverMyApi is a gem that provides a Ruby client for api.covermymeds.com
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'covermymeds_api'
+gem 'cover_my_meds'
 ```
 
 And then execute:
@@ -27,7 +27,7 @@ Fork the repo, make changes, and submit a pull request.
 You can use the CoverMyApi client to retrieve drugs, forms, pa requests, access tokens and create requests.
 
 ```ruby
-require 'covermymeds_api'  # not needed in a rails app
+require 'cover_my_meds'  # not needed in a rails app
 ```
 
 ## Getting Started
@@ -56,7 +56,7 @@ configuration.
 
 ```ruby
 Rails.application.configure do
-  config.covermymeds_api.default_host = 'https://master-api.integration.covermymeds.com'
+  config.cover_my_meds.default_host = 'https://master-api.integration.covermymeds.com'
 end
 ```
 
