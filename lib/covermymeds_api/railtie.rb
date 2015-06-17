@@ -8,8 +8,7 @@ module CoverMyMeds
     # stored in `Rails.application.secrets` and the configuration specified
     # here and in `Rails.application.config.covermymeds_api`
     def default_client
-      return @client if @client
-      @client = configured_client *credentials
+      @client ||= configured_client *credentials
     end
 
     # Create a configured API client class with the configuration stored on the
