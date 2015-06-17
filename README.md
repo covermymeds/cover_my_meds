@@ -56,8 +56,7 @@ configuration.
 
 ```ruby
 Rails.application.configure do
-  config.covermymeds_api.indicators_path = '/'
-  config.covermymeds_api.indicators_host = 'http://localhost:3000'
+  config.covermymeds_api.default_host = 'https://master-api.integration.covermymeds.com'
 end
 ```
 
@@ -72,8 +71,7 @@ Before anything else, create a new client:
 
 ```ruby
 client = CoverMyMeds::Client.new(your_api_id, your_api_secret) do |client|
-client.contacts_path = '/'
-client.contacts_host = 'http://contacts-api.dev'
+  client.default_host = 'https://api.covermymeds.com'
 end
 ```
 
