@@ -32,12 +32,46 @@ require 'covermymeds_api'  # not needed in a rails app
 
 ## Getting Started
 
+### Default Client
+
+```ruby
+CoverMyMeds.default_client
+```
+
+This will set up a new client with a default host of
+`https://api.covermymeds.com` and all the default paths. It will look for an API
+key and secret in the `CMM_API_ID` and `CMM_API_SECRET` environment variables
+respectively.
+
+### Rails
+
+In Rails, the default client will also check `Rails.application.secrets` for a
+`cmm_api_id` and `cmm_api_secret` before falling back to the environment
+variables.
+
+The gem also includes a Railtie to allow simple configuration in
+`Rails.application.configure` blocks typically found in environment files like
+`config/environments/development.rb` etc. Usage is similar to the standard
+configuration.
+
+```ruby
+Rails.application.configure do
+  config.covermymeds_api.default_host = 'https://master-api.integration.covermymeds.com'
+end
+```
+
+This will configure the default client retrieved through
+`CoverMyMeds.default_client`. If you want to pass your own API key and secret,
+you can call `CoverMyMeds.configured_client(api_id, api_secret)` which will use
+the same configuration, but the passed ID/secret.
+
+### Without Rails
+
 Before anything else, create a new client:
 
 ```ruby
 client = CoverMyMeds::Client.new(your_api_id, your_api_secret) do |client|
-client.contacts_path = '/'
-client.contacts_host = 'http://contacts-api.dev'
+  client.default_host = 'https://api.covermymeds.com'
 end
 ```
 
