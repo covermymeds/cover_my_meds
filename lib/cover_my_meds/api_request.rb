@@ -25,7 +25,7 @@ module CoverMyMeds
       rest_resource = RestClient::Resource.new(uri.to_s, tail)
 
       response = call_api http_method, rest_resource, &block
-      return nil if response.body.empty?
+      return nil if response.body.strip.empty?
       return JSON.parse(response.body)
     end
 
