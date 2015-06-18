@@ -4,7 +4,7 @@ SimpleCov.start do
   add_filter 'spec'
 end
 
-require "covermymeds_api"
+require "cover_my_meds"
 require 'rspec'
 require 'rspec/junklet'
 require 'rest-client'

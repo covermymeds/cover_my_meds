@@ -1,8 +1,8 @@
 module CoverMyMeds
   class Railtie < Rails::Railtie
-    config.covermymeds_api = ActiveSupport::OrderedOptions.new
+    config.cover_my_meds = ActiveSupport::OrderedOptions.new
 
-    config.covermymeds_api.default_host = "https://api.covermymeds.com/"
+    config.cover_my_meds.default_host = "https://api.covermymeds.com/"
 
     # Create (and cache) a configured API client instance using the id/secret
     # stored in `Rails.application.secrets` and the configuration specified
@@ -16,7 +16,7 @@ module CoverMyMeds
     # rest of the app, but a different id/secret pair
     def configured_client(api_id, secret = nil)
       CoverMyMeds::Client.new api_id, secret do |client|
-        config.covermymeds_api.each do |k,v|
+        config.cover_my_meds.each do |k,v|
           client.send "#{k}=".to_sym, v
         end
       end

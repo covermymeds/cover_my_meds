@@ -3,7 +3,7 @@ require 'json'
 require 'hashie'
 require 'active_support/core_ext/object/to_param'
 require 'active_support/core_ext/object/to_query'
-require 'covermymeds_api/error'
+require 'cover_my_meds/error'
 
 module CoverMyMeds
   module ApiRequest
