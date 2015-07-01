@@ -2,6 +2,8 @@
 
 CoverMyApi is a gem that provides a Ruby client for api.covermymeds.com
 
+[![Code Climate](https://codeclimate.com/github/covermymeds/cover_my_meds/badges/gpa.svg)](https://codeclimate.com/github/covermymeds/cover_my_meds)
+
 ## Installation
 
 Add this line to your application's Gemfile:
