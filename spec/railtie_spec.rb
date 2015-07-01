@@ -3,7 +3,7 @@ require 'spec_helper'
 # Gotta do this manually because Rails (probably) wasn't defined the first time
 # we loaded spec_helper (and thereby the rest of the gem)
 require 'rails/railtie'
-require 'covermymeds_api/railtie'
+require 'cover_my_meds/railtie'
 
 # We've also gotta load this because something assumes ActiveSupport is around
 # for JSON serialization once we've defined Rails, which is silly, but it's the
@@ -15,7 +15,7 @@ describe CoverMyMeds::Railtie do
   subject { CoverMyMeds::Railtie.instance }
 
   describe 'default config' do
-    subject { CoverMyMeds::Railtie.config.covermymeds_api }
+    subject { CoverMyMeds::Railtie.config.cover_my_meds }
 
     it { is_expected.to eq default_host: 'https://api.covermymeds.com/' }
   end
@@ -42,8 +42,8 @@ describe CoverMyMeds::Railtie do
   describe '#configured_client' do
     before do
       subject.configure do
-        config.covermymeds_api.default_host = "https://test.local"
-        config.covermymeds_api.indicators_host = "http://localhost:3000"
+        config.cover_my_meds.default_host = "https://test.local"
+        config.cover_my_meds.indicators_host = "http://localhost:3000"
       end
     end
 
