@@ -16,7 +16,7 @@ And then execute:
 bundle
 ```
 
-*For general API documentation see: https://api.covermymeds.com*
+*For general API documentation see: https://developers.covermymeds.com/ehr-api.html*
 
 ## Contributing
 
