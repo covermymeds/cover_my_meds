@@ -1,5 +1,7 @@
 # CoverMyMeds API
 
+[![Build Status](https://travis-ci.org/covermymeds/cover_my_meds.svg?branch=master)](https://travis-ci.org/covermymeds/cover_my_meds)
+
 CoverMyApi is a gem that provides a Ruby client for api.covermymeds.com
 
 ## Installation
