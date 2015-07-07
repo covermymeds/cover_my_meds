@@ -6,7 +6,7 @@ module CoverMyMeds
 
     # Create (and cache) a configured API client instance using the id/secret
     # stored in `Rails.application.secrets` and the configuration specified
-    # here and in `Rails.application.config.covermymeds_api`
+    # here and in `Rails.application.config.covermymeds`
     def default_client
       @client ||= configured_client *credentials
     end
