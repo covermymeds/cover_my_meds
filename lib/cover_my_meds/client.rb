@@ -3,7 +3,6 @@ require_relative 'client/drugs'
 require_relative 'client/forms'
 require_relative 'client/requests'
 require_relative 'client/tokens'
-require_relative 'client/pharmacies'
 require_relative 'client/credentials'
 require_relative 'client/request_pages'
 require_relative 'client/indicators'
@@ -15,7 +14,6 @@ module CoverMyMeds
     include CoverMyMeds::Forms
     include CoverMyMeds::Requests
     include CoverMyMeds::Tokens
-    include CoverMyMeds::Pharmacies
     include CoverMyMeds::Credentials
     include CoverMyMeds::RequestPages
     include CoverMyMeds::Indicators
