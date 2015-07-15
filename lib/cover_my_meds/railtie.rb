@@ -6,7 +6,7 @@ module CoverMyMeds
 
     # Create (and cache) a configured API client instance using the id/secret
     # stored in `Rails.application.secrets` and the configuration specified
-    # here and in `Rails.application.config.covermymeds`
+    # here and in `Rails.application.config.cover_my_meds`
     def default_client
       @client ||= configured_client *credentials
     end
@@ -24,9 +24,15 @@ module CoverMyMeds
 
     private
     def credentials
-      api_id = Rails.application.secrets.cmm_api_id || ENV['CMM_API_ID']
-      secret = Rails.application.secrets.cmm_api_secret || ENV['CMM_API_SECRET']
-      [ api_id, secret ]
+      [ try_api_id, try_secret ]
+    end
+
+    def try_api_id
+      Rails.application.try(:secrets).try(:cmm_api_id) || ENV['CMM_API_ID']
+    end
+
+    def try_secret
+      Rails.application.try(:secrets).try(:cmm_api_secret) || ENV['CMM_API_SECRET']
     end
   end
 end
