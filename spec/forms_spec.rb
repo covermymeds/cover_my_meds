@@ -7,14 +7,14 @@ describe 'Forms' do
 
   describe '#form_search' do
     let(:drug_id) { '093563' }
-    let(:form)    { 'anthem'}
-    let(:state)   { 'oh'}
-    let(:drug)    { 'Boniva'}
+    let(:form)    { 'anthem' }
+    let(:state)   { 'oh' }
+    let(:drug)    { 'Boniva' }
     let(:version) { 1 }
 
     before do
       stub_request(:get, "https://#{api_id}:@api.covermymeds.com/forms/?drug_id=#{drug_id}&state=#{state}&q=#{form}&v=#{version}")
-      .to_return(status: 200, body: fixture('forms.json'))
+        .to_return(status: 200, body: fixture('forms.json'))
     end
 
     it 'returns matching forms' do
@@ -33,14 +33,14 @@ describe 'Forms' do
   describe '#form_search_with_plan' do
     let(:drug_id) { '093563' }
     let(:bin)     { '610053' }
-    let(:pcn)     { 'BCBSOGA' }
-    let(:state)   { 'oh'}
-    let(:drug)    { 'Boniva'}
+    let(:pcn)     { 'BCBSOG' }
+    let(:state)   { 'oh' }
+    let(:drug)    { 'Boniva' }
     let(:version) { 1 }
 
     before do
       stub_request(:get, "https://#{api_id}:@api.covermymeds.com/forms/?drug_id=#{drug_id}&state=#{state}&bin=#{bin}&pcn=#{pcn}&v=#{version}")
-      .to_return(status: 200, body: fixture('forms.json'))
+       .to_return(status: 200, body: fixture('forms.json'))
     end
 
     it 'returns matching forms' do
