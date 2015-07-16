@@ -28,11 +28,18 @@ module CoverMyMeds
     end
 
     def try_api_id
-      Rails.application.try(:secrets).try(:cmm_api_id) || ENV['CMM_API_ID']
+      # Normally this would be a good place to use Object#try, but the Rails 3
+      # implementation doesn't rescue from NoMethodError like the Rails 4 one
+      # does, and that's EXACTLY the use case we are supporting here.
+      Rails.application.secrets.cmm_api_id || ENV['CMM_API_ID']
+    rescue NoMethodError
+      ENV['CMM_API_ID']
     end
 
     def try_secret
-      Rails.application.try(:secrets).try(:cmm_api_secret) || ENV['CMM_API_SECRET']
+      Rails.application.secrets.cmm_api_secret || ENV['CMM_API_SECRET']
+    rescue NoMethodError
+      ENV['CMM_API_SECRET']
     end
   end
 end
