@@ -5,11 +5,11 @@ describe 'Forms' do
   let(:client) { CoverMyMeds::Client.new(api_id) }
   let(:version){ 1 }
 
-  context 'search' do
+  describe '#form_search' do
     let(:drug_id) { '093563' }
-    let(:form)    {'anthem'}
-    let(:state)   {'oh'}
-    let(:drug)    {'Boniva'}
+    let(:form)    { 'anthem'}
+    let(:state)   { 'oh'}
+    let(:drug)    { 'Boniva'}
     let(:version) { 1 }
 
     before do
@@ -30,7 +30,33 @@ describe 'Forms' do
     end
   end
 
-  context 'get' do
+  describe '#form_search_with_plan' do
+    let(:drug_id) { '093563' }
+    let(:bin)     { '610053' }
+    let(:pcn)     { 'BCBSOGA' }
+    let(:state)   { 'oh'}
+    let(:drug)    { 'Boniva'}
+    let(:version) { 1 }
+
+    before do
+      stub_request(:get, "https://#{api_id}:@api.covermymeds.com/forms/?drug_id=#{drug_id}&state=#{state}&bin=#{bin}&pcn=#{pcn}&v=#{version}")
+      .to_return(status: 200, body: fixture('forms.json'))
+    end
+
+    it 'returns matching forms' do
+      forms = client.form_search_by_plan({bin: bin, pcn: pcn}, drug_id, state)
+      single_form = forms.first
+      expect(single_form.id).to               eq 15257
+      expect(single_form.href).to             eq 'https://staging.api.covermymeds.com/forms/15257'
+      expect(single_form.name).to             eq 'blue_cross_blue_shield_georgia_general'
+      expect(single_form.description).to      eq 'Anthem Non-Preferred Medications Request Form'
+      expect(single_form.directions).to       eq 'Anthem Prior Authorization Form for Non-Preferred Medications Request '
+      expect(single_form.request_form_id).to  eq 'blue_cross_blue_shield_georgia_general_15257'
+      expect(single_form.thumbnail_url).to    eq 'https://navinet.covermymeds.com/forms/pdf/thumbs/90/blue_cross_blue_shield_georgia_general_15257.jpg'
+    end
+  end
+
+  describe '#get_form' do
     let(:form_id) { 'humana_tracleer_4' }
     let(:version) { 1 }
 
