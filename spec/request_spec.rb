@@ -5,9 +5,9 @@ describe 'Request' do
   let(:api_secret) {'kkihcug797zu4bzomnh-sbamgqpxyr5yf2pvvqzm'}
   let(:client) { CoverMyMeds::Client.new(api_id, api_secret)}
   let(:version) { 1 }
+  let(:token_id) {'faketokenabcde1'}
 
   context 'get request' do
-    let(:token_id) {'faketokenabcde1'}
     before do
       stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/search/?v=#{version}")
       .with(body: { token_ids: [token_id] })
@@ -60,6 +60,25 @@ describe 'Request' do
       expect(data.id).to eq 'VA4EG7'
       expect(data.patient.first_name).to eq new_request_data.patient.first_name
 
+    end
+  end
+
+  context 'archive request', :archive do
+    let(:request_id) { 'ABCDEF' }
+    let(:outcome) { 'unfavorable' }
+    let(:reason) { 'some reason' }
+    let(:options) { { reason: reason } }
+
+    before do
+      stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/#{request_id}/archive")
+        .with(
+          query: hash_including(token_id: token_id, outcome: outcome, reason: reason)
+          )
+        .to_return(status: 200, body: '{}' )
+    end
+
+    it 'archives a request' do
+      expect(client.archive_request(token_id, request_id, outcome, options)).to eq Hash.new
     end
   end
 end

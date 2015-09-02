@@ -25,6 +25,17 @@ module CoverMyMeds
       Hashie::Mash.new(data['request'])
     end
 
+    def archive_request token_id, request_id, outcome, version = CURRENT_VERSION, **options
+      Hashie.symbolize_keys! options
+      params = {
+        token_id: token_id,
+        v: version,
+        outcome: outcome,
+        reason: options[:reason]
+        }
+      requests_request POST, params: params, path: "#{request_id}/archive"
+    end
+
     def request_data
       hash = JSON.parse @@json_string
       Hashie::Mash.new hash['request']
