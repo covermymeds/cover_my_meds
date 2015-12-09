@@ -36,6 +36,7 @@ module CoverMyMeds
     "urgent": "false",
     "form_id": "",
     "state": "",
+    "memo": "",
     "patient": {
       "first_name": "",
       "middle_name": "",
