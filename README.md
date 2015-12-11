@@ -83,7 +83,7 @@ end
 drugs = client.drug_search 'Boniva'
 
 drugs                   # => array of drugs
-drug = drug.first
+drug = drugs.first
 drug.name               # => 'Boniva'
 ```
 
