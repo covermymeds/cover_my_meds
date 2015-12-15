@@ -6,8 +6,8 @@ require 'cover_my_meds/version'
 Gem::Specification.new do |spec|
   spec.name          = "cover_my_meds"
   spec.version       = CoverMyMeds::VERSION
-  spec.authors       = ["Justin Rolston", "Mark Lorenz", "Dan Sajner", "Chad Cunningham", "Mike Gee", "Brandon Joyce", "Ryan Kowalick", "Shaun Hardin", "Jay Bobo", "Zach Serafini", "Rachel Twyford", "Ryan Stocker", "Corey Woodcox", "Nathan Demick"]
-  spec.email         = ["jrolston@covermymeds.com", "mlorenz@covermymeds.com", "dsajner@covermymeds.com", "ccunningham@covermymeds.com", "mgee@covermymeds.com", "bjoyce@covermymeds.com", "rkowalick@covermymeds.com", "shardin@covermymeds.com", "jbobo@covermymeds.com", "zserafini@covermymeds.com", "rtwyford@covermymeds.com", "rstocker@covermymeds.com", "cwoodcox@covermymeds.com", "ndemick@covermymeds.com"]
+  spec.authors       = ["Justin Rolston", "Mark Lorenz", "Dan Sajner", "Chad Cunningham", "Mike Gee", "Brandon Joyce", "Ryan Kowalick", "Shaun Hardin", "Jay Bobo", "Zach Serafini", "Rachel Twyford", "Ryan Stocker", "Corey Woodcox", "Nathan Demick", "Ryan Bone", "Ben Beckwith"]
+  spec.email         = ["jrolston@covermymeds.com", "mlorenz@covermymeds.com", "dsajner@covermymeds.com", "ccunningham@covermymeds.com", "mgee@covermymeds.com", "bjoyce@covermymeds.com", "rkowalick@covermymeds.com", "shardin@covermymeds.com", "jbobo@covermymeds.com", "zserafini@covermymeds.com", "rtwyford@covermymeds.com", "rstocker@covermymeds.com", "cwoodcox@covermymeds.com", "ndemick@covermymeds.com", "rbone@covermymeds.com", "bbeckwith@covermymeds.com"]
 
   spec.summary       = %q{CoverMyMeds Public API}
   spec.description   = %q{The public version of CoverMyMeds API}
