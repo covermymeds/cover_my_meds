@@ -11,7 +11,6 @@ describe 'Indicators' do
   let(:prescriber_payload) { Hash npi: '1234567890' }
 
   describe '#post_indicators' do
-    before { VCR.turn_off! }
     let(:token_id) { 'faketoken' }
     let!(:api_request) do
       stub_request(:post, uri)
@@ -56,7 +55,7 @@ describe 'Indicators' do
       end
     end
 
-    context 'when additional data is included in the response body' do 
+    context 'when additional data is included in the response body' do
       #response from indicators API
       let(:extra_data) { Hash pa_required: true, autostart: true }
       let(:prescription_response) { prescription_payload.merge(extra_data) }
@@ -78,7 +77,6 @@ describe 'Indicators' do
   end
 
   describe '#search_indicators' do
-    before { VCR.turn_off! }
     let(:uri) { "https://#{api_id}:#{api_secret}@api.covermymeds.com/indicators/search/?v=#{version}" }
     let(:token_id) { 'faketoken' }
     let!(:api_request) do
@@ -116,7 +114,7 @@ describe 'Indicators' do
       end
     end
 
-    context 'when additional data is included in the response body' do 
+    context 'when additional data is included in the response body' do
       #response from indicators API
       let(:extra_data) { Hash pa_required: true, autostart: true }
       let(:prescription_response) { prescription_payload.map{ |p| p.merge(extra_data)} }

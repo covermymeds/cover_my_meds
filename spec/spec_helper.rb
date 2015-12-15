@@ -13,7 +13,6 @@ require 'webmock/rspec'
 require 'pry'
 require 'support/webmock_strict'
 require 'securerandom'
-require 'support/vcr_setup'
 require 'dotenv'
 Dotenv.load
 
