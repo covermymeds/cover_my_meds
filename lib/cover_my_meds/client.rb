@@ -1,4 +1,5 @@
 require_relative 'api_request'
+require_relative 'client/consumers'
 require_relative 'client/drugs'
 require_relative 'client/forms'
 require_relative 'client/requests'
@@ -10,6 +11,7 @@ require_relative 'client/indicators'
 module CoverMyMeds
   class Client
     include CoverMyMeds::ApiRequest
+    include CoverMyMeds::Consumers
     include CoverMyMeds::Drugs
     include CoverMyMeds::Forms
     include CoverMyMeds::Requests
