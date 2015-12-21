@@ -6,7 +6,7 @@ module CoverMyMeds
 
     def create_consumer(consumer_params, version = CURRENT_VERSION)
       data = consumers_request POST, params: consumer_params.merge(v: version)
-      Hashie::Mash.new(data['consumer'])
+      Hashie::Mash.new(data['root_consumer'])
     end
   end
 end

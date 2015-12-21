@@ -10,7 +10,7 @@ describe 'Consumer' do
   let(:params) { Hash email: email, description: description }
   let(:response) do
     {
-      consumer: {
+      root_consumer: {
         api_id: junk,
         secret: junk,
         email: email,
