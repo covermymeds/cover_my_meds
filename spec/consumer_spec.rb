@@ -14,19 +14,13 @@ describe 'Consumer' do
         api_id: junk,
         secret: junk,
         email: email,
-        description: description
+        description: description,
       }
     }
   end
   let!(:consumer_create_stub) do
-    stub_request(
-      :post,
-      %r{
-        https://#{api_id}:#{api_secret}@api\.covermymeds\.com/consumers/\?
-        (?=.*v=#{version})
-        (?=.*description=#{description})
-        (?=.*email=#{email})
-      }x
+    stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/consumers/?v=1").with(
+      body: { consumer: { description: description, email: email } }
     ).to_return(body: response.to_json)
   end
 

@@ -59,7 +59,6 @@ describe 'Request' do
       data = client.create_request new_request_data
       expect(data.id).to eq 'VA4EG7'
       expect(data.patient.first_name).to eq new_request_data.patient.first_name
-
     end
   end
 end
