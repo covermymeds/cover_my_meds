@@ -137,3 +137,22 @@ request_page = client.get_request_page('NT5HL9','nhe44fu4g22upqqgstea', { remote
 request_page.keys # => values corresponding to a request page
 ```
 e.g ["data", "forms", "actions", "provided_coded_references", "validations"]
+
+## Create API Consumer
+```ruby
+consumer = client.create_consumer(email: 'consumer@example.com')
+consumer # => {"id"=>89517,
+               "key"=>"api-key",
+               "secret"=>"api-secret",
+               "email"=>"consumer@example.com",
+               "description"=>nil,
+               "callback_url"=>nil,
+               "callback_verb"=>"POST",
+               "theming"=>nil,
+               "created_at"=>"2015-12-22T14:33:25Z",
+               "updated_at"=>"2015-12-22T14:33:25Z",
+               "deleted_at"=>nil,
+               "service_user_id"=>826414,
+               "api_type"=>"NONE"}
+```
+Can optionally send in `description`, `callback_url`, `callback_verb`, `theming`.
