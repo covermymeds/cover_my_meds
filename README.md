@@ -93,7 +93,7 @@ drug.name               # => 'Boniva'
 forms = client.form_search('Blue Cross', drug.id, 'oh')
 
 forms                   # => array of forms
-form = form.first
+form = forms.first
 form.name               # => 'blue_cross_blue_shield_georgia_general'
 ```
 
