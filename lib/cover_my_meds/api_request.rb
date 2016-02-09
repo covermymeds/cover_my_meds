@@ -39,7 +39,7 @@ module CoverMyMeds
       body = block_given? ? yield : {}
       rest_resource.send http_method, body
     rescue RestClient::Exception => e
-      raise Error::HTTPError.new(e.http_code, e.http_body)
+      raise Error::HTTPError.new(e.http_code, e.http_body, http_method, rest_resource)
     end
 
     def api_uri host, path, params
