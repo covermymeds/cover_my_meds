@@ -10,9 +10,11 @@ module CoverMyMeds
       end
 
       def message
-        "#{@status}: #{@error_json}\n"+
-        "in response to:\n"+
-        "#{@http_method.upcase} #{@rest_resource}\n"
+        <<-EOS.gsub(/^ {10}/, "")
+          #{@status}: #{@error_json}
+          in response to:
+          #{@http_method.upcase} #{@rest_resource}
+        EOS
       end
 
       attr_reader :status, :error_json, :http_method, :rest_resource
