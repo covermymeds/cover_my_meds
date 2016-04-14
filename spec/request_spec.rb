@@ -6,7 +6,9 @@ describe 'Request' do
   let(:client) { CoverMyMeds::Client.new(api_id, api_secret)}
   let(:version) { 1 }
 
-  context 'get request' do
+  junklet :from_fax, :office_fax, :request_id, :token_id
+
+  describe 'get request' do
     let(:token_id) {'faketokenabcde1'}
     before do
       stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/search/?v=#{version}")
@@ -24,7 +26,7 @@ describe 'Request' do
     end
   end
 
-  context 'get multiple requests' do
+  describe 'get multiple requests' do
     let(:token_ids) {['pbma9uxy47smi957okxo', 'npnojtoqsmf94q7d481j']}
 
     before do
@@ -43,7 +45,7 @@ describe 'Request' do
     end
   end
 
-  context 'create request' do
+  describe 'create request' do
     let(:new_request_data) do
       request_data = client.request_data
       request_data.patient.first_name = 'Justin'
@@ -59,6 +61,71 @@ describe 'Request' do
       data = client.create_request new_request_data
       expect(data.id).to eq 'VA4EG7'
       expect(data.patient.first_name).to eq new_request_data.patient.first_name
+    end
+  end
+
+  describe 'send to plan' do
+    let!(:api_stub) do
+      stub_request(:post, "https://api.covermymeds.com/requests/#{request_id}/send_to_plan")
+        .with(query: { v: version })
+        .with(body: fax_params, headers: { 'Authorization' => "Bearer #{api_id}+#{token_id}" })
+        .to_return(status: 200, body: { request: { id: request_id } }.to_json)
+    end
+
+    context "with all required params" do
+      let!(:pa_request) do
+        client.send_to_plan_request request_id, token_id, fax_params
+      end
+
+      let(:fax_params) { Hash office_fax: office_fax, from_fax: from_fax }
+
+      it "sends the request" do
+        expect(api_stub).to have_been_requested
+      end
+
+      it "returns an object with the data" do
+        expect(pa_request.id).to eq request_id
+      end
+    end
+
+    context "without office fax" do
+      let(:fax_params) { Hash from_fax: from_fax }
+
+      it "raises an error" do
+        expect {
+          client.send_to_plan_request request_id, token_id, fax_params
+        }.to raise_error ArgumentError, /office_fax/
+      end
+    end
+
+    context "without from fax" do
+      let(:fax_params) { Hash office_fax: office_fax }
+
+      it "raises an error" do
+        expect {
+          client.send_to_plan_request request_id, token_id, fax_params
+        }.to raise_error ArgumentError, /from_fax/
+      end
+    end
+  end
+
+  describe 'archive request' do
+    let(:archive_params) do
+      {
+        outcome: "favorable",
+      }
+    end
+
+    let!(:api_stub) do
+      stub_request(:post, "https://api.covermymeds.com/requests/#{request_id}/archive")
+        .with(query: { v: version })
+        .with(body: archive_params, headers: { 'Authorization' => "Bearer #{api_id}+#{token_id}" })
+        .to_return(status: 200, body: { request: { id: request_id } }.to_json)
+    end
+
+    it "sends the request" do
+      data = client.archive_request request_id, token_id, archive_params
+      expect(data.id).to eq(request_id)
     end
   end
 end

@@ -25,6 +25,32 @@ module CoverMyMeds
       Hashie::Mash.new(data['request'])
     end
 
+    def send_to_plan_request request_id, token_id, fax_params = {}, version = "1"
+      params = { token_id: token_id, v: version }
+
+      error_msg = ""
+      [ :office_fax, :from_fax ].each do |param|
+        error_msg = "#{param} is required. " unless fax_params[param]
+      end
+      raise ArgumentError.new(error_msg) unless error_msg == ""
+
+      data = requests_request POST, params: params, path: "#{request_id}/send_to_plan", auth: :bearer do
+        fax_params
+      end
+
+      Hashie::Mash.new data['request']
+    end
+
+    def archive_request request_id, token_id, archive_params = {}, version = "1"
+      params = { token_id: token_id, v: version }
+
+      data = requests_request POST, params: params, path: "#{request_id}/archive", auth: :bearer do
+        archive_params
+      end
+
+      Hashie::Mash.new data['request']
+    end
+
     def request_data
       hash = JSON.parse @@json_string
       Hashie::Mash.new hash['request']
