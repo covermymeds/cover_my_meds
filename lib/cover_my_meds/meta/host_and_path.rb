@@ -44,7 +44,7 @@ module CoverMyMeds
           params     =  options[:params]
           auth       =  options[:auth]
           host_name  =  public_send("#{api_name}_host".to_sym)
-          full_path  =  public_send("#{api_name}_path".to_sym) + path
+          full_path  =  public_send("#{api_name}_path".to_sym) + path.to_s
 
           proxy_args = [ method, host_name, full_path, params, auth ]
           fail ArgumentError, "method, host_name or full_path can not be nil" if proxy_args.take(3).any?(&:nil?)

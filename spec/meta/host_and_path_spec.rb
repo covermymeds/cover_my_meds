@@ -1,5 +1,6 @@
 module CoverMyMeds::ExampleApiResources
   include CoverMyMeds::HostAndPath
+  include CoverMyMeds::ApiRequest
 end
 
 class AnyClass
@@ -37,6 +38,14 @@ describe AnyClass do
     it "should proxy for #request" do
       expect(subject).to receive(:request).with(:GET, "http://default-host.com", "/example-api-resources/", {v: 1})
       subject.example_api_resources_request(:GET, params: {v: 1})
+    end
+
+    context "when the path is a Fixnum" do
+      let(:path) { junk :int }
+      it "does not blow up" do
+        stub_request :get, %r{example-api-resources/#{path}}
+        expect { subject.example_api_resources_request(:get, path: path) }.to_not raise_error
+      end
     end
   end
 
