@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "railties"
 
   spec.add_runtime_dependency "rest-client", "~> 1.6"
+  spec.add_runtime_dependency "curb"
   spec.add_runtime_dependency "hashie", ">= 3.4.0"
   spec.add_runtime_dependency "settingslogic"
   spec.add_runtime_dependency "activesupport"

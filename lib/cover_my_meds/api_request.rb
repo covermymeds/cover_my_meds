@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'curl'
 require 'json'
 require 'hashie'
 require 'active_support/core_ext/object/to_param'
@@ -12,27 +13,37 @@ module CoverMyMeds
       params  = params.symbolize_keys
       headers = params.delete(:headers) || {}
 
-      tail = case auth_type
-        when :basic
-          { user: @username, password: @password, headers: headers }
-        when :bearer
-          { headers: { "Authorization" => "Bearer #{@username}+#{params.delete(:token_id)}" }.merge(headers) }
-        else
-          {}
+      c = Curl::Easy.new
+      c.headers = headers
+      c.on_missing { |c| raise Error::HTTPError.new(e.http_code, e.http_body, http_method, rest_resource) }
+      c.on_failure { |c| raise Error::HTTPError.new(e.http_code, e.http_body, http_method, rest_resource) }
+
+      if auth_type == :basic
+        c.http_auth_types = :basic
+        c.username = @username
+        c.password = @password
+      elsif auth_type == :bearer
+        c.headers["Authorization"] = "Bearer #{@username}+#{params.delete(:token_id)}"
       end
 
-      uri = api_uri(host, path, params)
-      rest_resource = RestClient::Resource.new(uri.to_s, tail)
 
-      response = call_api http_method, rest_resource, &block
-      parse_response response
+      uri = api_uri(host, path, params)
+      c.url = uri.to_s
+      c.send(http_method)
+
+      binding.pry
+      if c.status.first != "2"
+        raise Error::HTTPError.new(c.status[0..2], c.body_str, http_method, uri.to_s)
+      end
+
+      parse_response c.body_str
     end
 
     def parse_response response
-      return nil if response.body.empty?
-      JSON.parse(response.body)
+      return nil if response.empty?
+      JSON.parse(response)
     rescue JSON::ParserError
-      response.body
+      response
     end
 
     def call_api http_method, rest_resource
