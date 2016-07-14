@@ -15,8 +15,6 @@ module CoverMyMeds
 
       c = Curl::Easy.new
       c.headers = headers
-      c.on_missing { |c| raise Error::HTTPError.new(e.http_code, e.http_body, http_method, rest_resource) }
-      c.on_failure { |c| raise Error::HTTPError.new(e.http_code, e.http_body, http_method, rest_resource) }
 
       if auth_type == :basic
         c.http_auth_types = :basic
@@ -31,7 +29,6 @@ module CoverMyMeds
       c.url = uri.to_s
       c.send(http_method)
 
-      binding.pry
       if c.status.first != "2"
         raise Error::HTTPError.new(c.status[0..2], c.body_str, http_method, uri.to_s)
       end
