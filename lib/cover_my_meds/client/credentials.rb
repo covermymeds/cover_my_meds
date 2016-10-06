@@ -4,7 +4,7 @@ module CoverMyMeds
 
     CURRENT_VERSION = 1
 
-    def create_credential npi: npi, callback_url: '', callback_verb: '', fax_numbers: fax_numbers, contact_hint: {}, version: CURRENT_VERSION
+    def create_credential npi: npi(), callback_url: '', callback_verb: '', fax_numbers: fax_numbers(), contact_hint: {}, version: CURRENT_VERSION
       params = { v: version }
       data = credentials_request POST, params: params do
         {
