@@ -7,7 +7,7 @@ end
 require "cover_my_meds"
 require 'rspec'
 require 'rspec/junklet'
-require 'rest-client'
+require 'faraday'
 require 'webmock'
 require 'webmock/rspec'
 require 'pry'
