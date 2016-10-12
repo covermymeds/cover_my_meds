@@ -9,8 +9,9 @@ describe 'Access Token' do
 
   context 'create token' do
     before do
-      stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/tokens/?request_ids[]=#{request_id}&v=#{version}")
-      .to_return( status: 201, body: fixture('post_token.json'))
+      stub_request(:post, "https://api.covermymeds.com/requests/tokens/?request_ids[]=#{request_id}&v=#{version}")
+        .with(basic_auth: [api_id, api_secret])
+        .to_return( status: 201, body: fixture('post_token.json'))
     end
 
     it 'returns new token' do
@@ -23,8 +24,9 @@ describe 'Access Token' do
   context 'revoke access token' do
     let(:token_id) { 'tikl5sci8q24kfy1h3rb' }
     before do
-      stub_request(:delete, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/tokens/#{token_id}?v=#{version}")
-      .to_return( status: 201, body: fixture('post_token.json'))
+      stub_request(:delete, "https://api.covermymeds.com/requests/tokens/#{token_id}?v=#{version}")
+        .with(basic_auth: [api_id, api_secret])
+        .to_return( status: 201, body: fixture('post_token.json'))
     end
 
     it 'returns response' do

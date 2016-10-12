@@ -8,8 +8,7 @@ describe 'Credential' do
   let(:npi)           { '1234567890' }
   let(:fax_number)    { '15552224444' }
   let(:email)         { 'ehrsystem@foo.dev' }
-  let(:auth)          { "#{api_id}:#{api_secret}" }
-  let(:api_url)       { "https://#{auth}@api.covermymeds.com/prescribers/credentials/?v=#{version}" }
+  let(:api_url)       { "https://api.covermymeds.com/prescribers/credentials/?v=#{version}" }
   let(:callback_url)  { 'https://foo.dev/callback' }
   let(:callback_verb) { 'POST' }
   let(:contact_hint) do
@@ -46,6 +45,7 @@ describe 'Credential' do
     before do
       stub_request(:post, api_url)
       .with(
+        basic_auth: [api_id, api_secret],
         body: credential_body,
       )
       .to_return( status: 201, body: fixture('post_credential.json'))
@@ -69,7 +69,7 @@ describe 'Credential' do
   end
 
   describe '#delete_credential' do
-    let(:api_url)                 { "https://#{auth}@api.covermymeds.com/prescribers/credentials/#{npi}" }
+    let(:api_url)                 { "https://api.covermymeds.com/prescribers/credentials/#{npi}" }
     let!(:delete_credential_stub) { stub_request(:delete, api_url).with(query: { v: version }).to_return(status: 204) }
 
     it 'deletes the credential' do

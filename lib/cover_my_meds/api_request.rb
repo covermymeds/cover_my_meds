@@ -1,18 +1,24 @@
 require 'faraday'
+require 'typhoeus'
+require 'typhoeus/adapters/faraday'
 require 'json'
 require 'hashie'
 require 'active_support/core_ext/object/to_param'
 require 'active_support/core_ext/object/to_query'
 require 'cover_my_meds/error'
 
+
 module CoverMyMeds
   module ApiRequest
+    DEFAULT_TIMEOUT = 60 #seconds, matches Net::Http's default which rest-client used
 
     def request(http_method, host, path, params={}, auth_type = :basic, &block)
       params  = params.symbolize_keys
       headers = params.delete(:headers) || {}
 
-      conn = Faraday.new host
+      conn = Faraday.new host do |faraday|
+        faraday.adapter :typhoeus
+      end
       case auth_type
       when :basic
         conn.basic_auth @username, @password
@@ -22,6 +28,7 @@ module CoverMyMeds
 
       response = conn.send http_method do |request|
         request.url path
+        request.options.timeout = DEFAULT_TIMEOUT
         request.params = params
         request.headers.merge! headers
         request.body = yield if block_given?

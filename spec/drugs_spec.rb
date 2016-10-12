@@ -9,8 +9,9 @@ describe 'Drugs' do
     let(:drug)    {'Boniva'}
     let(:version) { 1 }
     before do
-      stub_request(:get, "https://#{api_id}:@api.covermymeds.com/drugs/?q=#{drug}&v=#{version}").
-        to_return( status: 200, body: fixture('drugs.json'))
+      stub_request(:get, "https://api.covermymeds.com/drugs/?q=#{drug}&v=#{version}")
+        .with(basic_auth: [api_id, ''])
+        .to_return( status: 200, body: fixture('drugs.json'))
     end
 
     it 'makes methods from json' do
@@ -36,8 +37,9 @@ describe 'Drugs' do
     let(:version) { 1 }
 
     before do
-      stub_request(:get, "https://#{api_id}:@api.covermymeds.com/drugs/#{drug_id}?v=#{version}").
-        to_return( status: 200, body: fixture('drug.json'))
+      stub_request(:get, "https://api.covermymeds.com/drugs/#{drug_id}?v=#{version}")
+        .with(basic_auth: [api_id, ''])
+        .to_return( status: 200, body: fixture('drug.json'))
     end
 
     it 'makes methods from json' do

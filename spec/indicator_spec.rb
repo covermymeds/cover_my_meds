@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Indicators' do
   junklet :api_id, :api_secret, :bin, :pcn, :group_id
   let(:version) { 1 }
-  let(:uri) { "https://#{api_id}:#{api_secret}@api.covermymeds.com/indicators/?v=#{version}" }
+  let(:uri) { "https://api.covermymeds.com/indicators/?v=#{version}" }
   let(:client) { CoverMyMeds::Client.new(api_id, api_secret) }
   let(:prescription_payload) { Hash drug_id: '12345' }
   let(:payer_payload) { Hash bin: bin, pcn: pcn, group_id: group_id }
@@ -14,7 +14,7 @@ describe 'Indicators' do
     let(:token_id) { 'faketoken' }
     let!(:api_request) do
       stub_request(:post, uri)
-        .with(body: hash_including(post_data))
+        .with(body: hash_including(post_data), basic_auth: [api_id, api_secret])
         .to_return({})
     end
     let(:post_data) { Hash prescription:  prescription_payload }
@@ -63,7 +63,7 @@ describe 'Indicators' do
 
       before do
         stub_request(:post, uri)
-          .with(body: hash_including(post_data))
+          .with(body: hash_including(post_data), basic_auth: [api_id, api_secret])
           .to_return(status: 200, body: { prescription: prescription_response }.to_json)
       end
 
@@ -77,11 +77,11 @@ describe 'Indicators' do
   end
 
   describe '#search_indicators' do
-    let(:uri) { "https://#{api_id}:#{api_secret}@api.covermymeds.com/indicators/search/?v=#{version}" }
+    let(:uri) { "https://api.covermymeds.com/indicators/search/?v=#{version}" }
     let(:token_id) { 'faketoken' }
     let!(:api_request) do
       stub_request(:post, uri)
-        .with(body: hash_including(post_data))
+        .with(body: hash_including(post_data), basic_auth: [api_id, api_secret])
         .to_return({})
     end
     let(:post_data) { Hash prescriptions:  prescription_payload }
@@ -122,7 +122,7 @@ describe 'Indicators' do
 
       before do
         stub_request(:post, uri)
-          .with(body: hash_including(post_data))
+          .with(body: hash_including(post_data), basic_auth: [api_id, api_secret])
           .to_return(status: 200, body: { prescriptions: prescription_response }.to_json)
       end
 

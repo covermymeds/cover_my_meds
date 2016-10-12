@@ -19,8 +19,9 @@ describe 'Consumer' do
     }
   end
   let!(:consumer_create_stub) do
-    stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/consumers/?v=1").with(
-      body: { consumer: { description: description, email: email } }
+    stub_request(:post, "https://api.covermymeds.com/consumers/?v=1").with(
+      body: { consumer: { description: description, email: email } },
+      basic_auth: [api_id, api_secret]
     ).to_return(body: response.to_json)
   end
 

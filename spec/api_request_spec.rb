@@ -21,7 +21,7 @@ describe 'Request' do
 
   context 'get request with error' do
     before do
-      stub_request(:get, "#{scheme}#{api_id}:#{api_secret}@#{host}#{path}")
+      stub_request(:get, "#{scheme}#{host}#{path}").with(basic_auth: [api_id, api_secret])
       .to_return(status: 400, body: fixture('api_client_error.json'))
     end
 
@@ -33,7 +33,7 @@ describe 'Request' do
   context 'get request' do
     context 'non-json response' do
       before do
-        stub_request(:get, "#{scheme}#{api_id}:#{api_secret}@#{host}#{path}")
+        stub_request(:get, "#{scheme}#{host}#{path}").with(basic_auth: [api_id, api_secret])
         .to_return(status: 200, body: non_json_response)
       end
 
@@ -44,7 +44,7 @@ describe 'Request' do
 
     context 'json response' do
       before do
-        stub_request(:get, "#{scheme}#{api_id}:#{api_secret}@#{host}#{path}")
+        stub_request(:get, "#{scheme}#{host}#{path}").with(basic_auth: [api_id, api_secret])
         .to_return(status: 200, body: json_response)
       end
 
