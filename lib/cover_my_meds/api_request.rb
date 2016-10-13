@@ -6,6 +6,7 @@ require 'hashie'
 require 'active_support/core_ext/object/to_param'
 require 'active_support/core_ext/object/to_query'
 require 'cover_my_meds/error'
+require 'mime-types'
 
 
 module CoverMyMeds
