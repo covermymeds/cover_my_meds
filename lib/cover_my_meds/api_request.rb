@@ -17,6 +17,8 @@ module CoverMyMeds
       headers = params.delete(:headers) || {}
 
       conn = Faraday.new host do |faraday|
+        faraday.request :multipart
+        faraday.request :url_encoded
         faraday.adapter :typhoeus
       end
       case auth_type
