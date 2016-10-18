@@ -25,3 +25,4 @@ quickfix.out
 
 # to keep out api keys and secrets
 spec/support/cassettes/**
+/vendor

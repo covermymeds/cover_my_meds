@@ -34,7 +34,7 @@ module CoverMyMeds
         request.options.timeout = DEFAULT_TIMEOUT
         request.params = params
         request.headers.merge! headers
-        request.body = yield if block_given?
+        request.body = block_given? ? yield : {}
       end
       raise Error::HTTPError.new(response.status, response.body, http_method, conn) unless response.success?
 
