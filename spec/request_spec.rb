@@ -11,8 +11,8 @@ describe 'Request' do
   describe 'get request' do
     let(:token_id) {'faketokenabcde1'}
     before do
-      stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/search/?v=#{version}")
-      .with(body: { token_ids: [token_id] })
+      stub_request(:post, "https://api.covermymeds.com/requests/search/?v=#{version}")
+      .with(body: { token_ids: [token_id] }, basic_auth: [api_id, api_secret])
       .to_return( status: 200, body: fixture('get_single_request.json'))
     end
 
@@ -32,7 +32,8 @@ describe 'Request' do
     before do
       WebMockStrict.start
 
-      stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/search/?token_ids[]=#{token_ids.first}&token_ids[]=#{token_ids.last}&v=#{version}")
+      stub_request(:post, "https://api.covermymeds.com/requests/search/?token_ids[]=#{token_ids.first}&token_ids[]=#{token_ids.last}&v=#{version}")
+      .with(basic_auth: [api_id, api_secret])
       .to_return( status: 200, body: fixture('get_multiple_requests.json'))
     end
 
@@ -53,7 +54,8 @@ describe 'Request' do
     end
 
     before do
-      stub_request(:post, "https://#{api_id}:#{api_secret}@api.covermymeds.com/requests/?v=#{version}")
+      stub_request(:post, "https://api.covermymeds.com/requests/?v=#{version}")
+      .with(basic_auth: [api_id, api_secret])
       .to_return( status: 201, body: fixture('create_request.json'))
     end
 

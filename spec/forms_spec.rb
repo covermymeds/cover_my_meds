@@ -13,7 +13,8 @@ describe 'Forms' do
     let(:version) { 1 }
 
     before do
-      stub_request(:get, "https://#{api_id}:@api.covermymeds.com/forms/?drug_id=#{drug_id}&state=#{state}&q=#{form}&v=#{version}")
+      stub_request(:get, "https://api.covermymeds.com/forms/?drug_id=#{drug_id}&state=#{state}&q=#{form}&v=#{version}")
+        .with(basic_auth: [api_id, ''])
         .to_return(status: 200, body: fixture('forms.json'))
     end
 
@@ -39,8 +40,9 @@ describe 'Forms' do
     let(:version) { 1 }
 
     before do
-      stub_request(:get, "https://#{api_id}:@api.covermymeds.com/forms/?drug_id=#{drug_id}&state=#{state}&bin=#{bin}&pcn=#{pcn}&v=#{version}")
-       .to_return(status: 200, body: fixture('forms.json'))
+      stub_request(:get, "https://api.covermymeds.com/forms/?drug_id=#{drug_id}&state=#{state}&bin=#{bin}&pcn=#{pcn}&v=#{version}")
+        .with(basic_auth: [api_id, ''])
+        .to_return(status: 200, body: fixture('forms.json'))
     end
 
     it 'returns matching forms' do
@@ -61,8 +63,9 @@ describe 'Forms' do
     let(:version) { 1 }
 
     before do
-      stub_request(:get, "https://#{api_id}:@api.covermymeds.com/forms/humana_tracleer_4?v=#{version}")
-      .to_return(status: 200, body: fixture('form.json'))
+      stub_request(:get, "https://api.covermymeds.com/forms/humana_tracleer_4?v=#{version}")
+        .with(basic_auth: [api_id, ''])
+        .to_return(status: 200, body: fixture('form.json'))
     end
 
     it 'returns matching forms' do
