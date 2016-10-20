@@ -41,5 +41,19 @@ describe 'Request' do
         expect(request_page.keys).to match_array expected_keys
       end
     end
+
+    context 'a redirect is returned' do
+      before do
+        stub_request(:get, "https://www.example.com/").to_return(status: 200, body: { request_page: { data: "You redirected" } }.to_json)
+        stub_request(:get, "https://api.covermymeds.com/request-pages/#{request_id}?&v=#{version}")
+          .with( headers: { "Authorization" => "Bearer #{api_id}+#{token_id}" })
+          .to_return( status: 302, :headers => { "Location" => "https://www.example.com/" })
+      end
+
+      it 'follows redirects' do
+        request_page = client.get_request_page(request_id, token_id)
+        expect(request_page.data).to eq "You redirected"
+      end
+    end
   end
 end
