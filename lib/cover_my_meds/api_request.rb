@@ -1,6 +1,5 @@
 require 'faraday'
 require 'faraday_middleware'
-require 'faraday-cookie_jar'
 require 'typhoeus'
 require 'typhoeus/adapters/faraday'
 require 'json'
@@ -23,7 +22,6 @@ module CoverMyMeds
         faraday.request  :multipart
         faraday.request  :url_encoded
         faraday.response :follow_redirects
-        faraday.use      :cookie_jar
         faraday.adapter  :typhoeus
       end
       case auth_type
