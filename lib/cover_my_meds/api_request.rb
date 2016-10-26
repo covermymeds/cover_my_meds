@@ -1,4 +1,5 @@
 require 'faraday'
+require 'faraday_middleware'
 require 'typhoeus'
 require 'typhoeus/adapters/faraday'
 require 'json'
@@ -18,9 +19,10 @@ module CoverMyMeds
       headers = params.delete(:headers) || {}
 
       conn = Faraday.new host do |faraday|
-        faraday.request :multipart
-        faraday.request :url_encoded
-        faraday.adapter :typhoeus
+        faraday.request  :multipart
+        faraday.request  :url_encoded
+        faraday.response :follow_redirects
+        faraday.adapter  :typhoeus
       end
       case auth_type
       when :basic
