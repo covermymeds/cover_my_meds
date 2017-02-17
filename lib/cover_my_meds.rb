@@ -9,6 +9,7 @@ module CoverMyMeds
   GET    = 'get'.freeze
   POST   = 'post'.freeze
   PUT    = 'put'.freeze
+  PATCH  = 'patch'.freeze
   DELETE = 'delete'.freeze
 
   def self.version
