@@ -156,3 +156,15 @@ consumer # => {"id"=>89517,
                "api_type"=>"NONE"}
 ```
 Can optionally send in `description`, `callback_url`, `callback_verb`, `theming`.
+
+
+## Create Root Consumers Request
+```ruby
+consumers_request = client.create_root_consumers_request 'api_key', 'request_id'
+consumers_request # => #<Hashie::Mash 
+  api_consumer_id=3903 
+  consumer_key="api_key" 
+  href="https://ehr1-api.testing.covermymeds.com/consumers/determinator/requests/request_id" 
+  request_id="request_id" 
+  request_url="https://ehr1-api.testing.covermymeds.com/requests/request_id?consumer_key=api_key"
+>
