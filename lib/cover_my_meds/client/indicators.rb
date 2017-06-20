@@ -4,8 +4,8 @@ module CoverMyMeds
 
     CURRENT_VERSION = 1
 
-    def post_indicators(prescription: prescription(), patient: patient(), payer: {}, prescriber: {}, version: CURRENT_VERSION)
-      params = { prescription: prescription, prescriber: prescriber, patient: patient, payer: payer }
+    def post_indicators(prescription: prescription(), patient: patient(), payer: {}, prescriber: {}, rxnorm: nil, version: CURRENT_VERSION)
+      params = { prescription: prescription, prescriber: prescriber, patient: patient, payer: payer, rxnorm: rxnorm }
       data = indicators_request POST, params: { v: version, headers: { content_type: "application/json" } } do
         params.to_json
       end

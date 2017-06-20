@@ -8,7 +8,8 @@ describe 'Indicators' do
   let(:prescription_payload) { Hash drug_id: '12345' }
   let(:payer_payload) { Hash bin: bin, pcn: pcn, group_id: group_id }
   let(:patient_payload) { { last_name: 'Doe' } }
-  let(:prescriber_payload) { Hash npi: '1234567890' }
+  let(:prescriber_payload) { Hash npi:  '1234567890' }
+  let(:rxnorm) { '1234567' }
 
   describe '#post_indicators' do
     let(:token_id) { 'faketoken' }
@@ -54,6 +55,14 @@ describe 'Indicators' do
         expect(api_request).to have_been_requested
       end
     end
+
+  context 'when given prescription, prescriber, patient, payer, and rxnorm data' do
+    let(:post_data) { Hash prescription: prescription_payload, patient: patient_payload, payer: payer_payload, prescriber: prescriber_payload, rxnorm: rxnorm }
+    it 'has payer data in the request' do
+      client.post_indicators(prescription: prescription_payload, patient: patient_payload, payer: payer_payload, prescriber: prescriber_payload, rxnorm: rxnorm)
+      expect(api_request).to have_been_requested
+    end
+  end
 
     context 'when additional data is included in the response body' do
       #response from indicators API
