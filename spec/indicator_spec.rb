@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Indicators' do
-  junklet :api_id, :api_secret, :bin, :pcn, :group_id
+  junklet :api_id, :api_secret, :bin, :pcn, :group_id, :name, :npi
   let(:version) { 1 }
   let(:uri) { "https://api.covermymeds.com/indicators/?v=#{version}" }
   let(:client) { CoverMyMeds::Client.new(api_id, api_secret) }
@@ -9,6 +9,7 @@ describe 'Indicators' do
   let(:payer_payload) { Hash bin: bin, pcn: pcn, group_id: group_id }
   let(:patient_payload) { { last_name: 'Doe' } }
   let(:prescriber_payload) { Hash npi:  '1234567890' }
+  let(:pharmacy_payload) { Hash name: name, npi: npi }
   let(:rxnorm) { '1234567' }
 
   describe '#post_indicators' do
@@ -60,6 +61,14 @@ describe 'Indicators' do
     let(:post_data) { Hash prescription: prescription_payload, patient: patient_payload, payer: payer_payload, prescriber: prescriber_payload, rxnorm: rxnorm }
     it 'has payer data in the request' do
       client.post_indicators(prescription: prescription_payload, patient: patient_payload, payer: payer_payload, prescriber: prescriber_payload, rxnorm: rxnorm)
+      expect(api_request).to have_been_requested
+    end
+  end
+
+  context 'when given prescription, prescriber, patient, payer, rxnorm, and pharmacy data' do
+    let(:post_data) { Hash prescription: prescription_payload, patient: patient_payload, payer: payer_payload, prescriber: prescriber_payload, pharmacy: pharmacy_payload, rxnorm: rxnorm }
+    it 'has payer data in the request' do
+      client.post_indicators(prescription: prescription_payload, patient: patient_payload, payer: payer_payload, prescriber: prescriber_payload, pharmacy: pharmacy_payload, rxnorm: rxnorm)
       expect(api_request).to have_been_requested
     end
   end
