@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "faraday", "~> 0.11"
   spec.add_runtime_dependency "faraday_middleware"
+  spec.add_runtime_dependency "ffi", "= 1.9.18"
   spec.add_runtime_dependency "typhoeus"
   spec.add_runtime_dependency "mime-types"
   spec.add_runtime_dependency "hashie", ">= 3.4.0"
