@@ -5,6 +5,6 @@ if RUBY_VERSION < '2.2'
   gem 'rack', '~> 1.6.0', group: :test
 end
 
-gem "ffi", "= 1.9.21"
+gem "ffi", "= 1.9.18"
 
 gemspec
