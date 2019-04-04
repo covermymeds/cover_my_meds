@@ -33,6 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "ffi", "= 1.9.25"
   spec.add_runtime_dependency "typhoeus"
   spec.add_runtime_dependency "mime-types"
-  spec.add_runtime_dependency "hashie", ">= 3.4.0"
+  spec.add_runtime_dependency "hashie", ">= 3.5.2"
   spec.add_runtime_dependency "activesupport"
 end
