@@ -1,6 +1,7 @@
 require "cover_my_meds/version"
 require_relative 'cover_my_meds/meta'
 require_relative 'cover_my_meds/client'
+require_relative 'quiet_mash'
 
 require 'cover_my_meds/railtie' if defined?(Rails)
 

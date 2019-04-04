@@ -9,20 +9,20 @@ module CoverMyMeds
       data = requests_request POST, params: params, path: "search/" do
         "token_ids[]=#{token_id}"
       end
-      Hashie::Mash.new(data['requests'].first)
+      QuietMash.new(data['requests'].first)
     end
 
     def get_requests token_ids, version = CURRENT_VERSION
       params = { 'token_ids' => token_ids, v: version }
       data = requests_request POST, params: params, path: "search/"
-      data['requests'].map { |d| Hashie::Mash.new(d) }
+      data['requests'].map { |d| QuietMash.new(d) }
     end
 
     def create_request request_data,version = CURRENT_VERSION
       data = requests_request POST, params: { v: version } do
         { 'request' => request_data.to_hash }
       end
-      Hashie::Mash.new(data['request'])
+      QuietMash.new(data['request'])
     end
 
     def send_to_plan_request request_id, token_id, fax_params = {}, version = "1"
@@ -38,7 +38,7 @@ module CoverMyMeds
         fax_params
       end
 
-      Hashie::Mash.new data['request']
+      QuietMash.new data['request']
     end
 
     def archive_request request_id, token_id, archive_params = {}, version = "1"
@@ -48,12 +48,12 @@ module CoverMyMeds
         archive_params
       end
 
-      Hashie::Mash.new data['request']
+      QuietMash.new data['request']
     end
 
     def request_data
       hash = JSON.parse @@json_string
-      Hashie::Mash.new hash['request']
+      QuietMash.new hash['request']
     end
 
     @@json_string = <<-eof

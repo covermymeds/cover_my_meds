@@ -14,7 +14,7 @@ module CoverMyMeds
 
     def get_form form_id, version = CURRENT_VERSION
       data = forms_request GET, params: { v: version }, path: form_id
-      Hashie::Mash.new(data['form'])
+      QuietMash.new(data['form'])
     end
 
     private
@@ -26,7 +26,7 @@ module CoverMyMeds
         v: version
       )
       data = forms_request GET, params: params
-      data['forms'].map { |d| Hashie::Mash.new(d) }
+      data['forms'].map { |d| QuietMash.new(d) }
     end
   end
 end

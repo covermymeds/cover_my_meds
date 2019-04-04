@@ -17,7 +17,7 @@ module CoverMyMeds
           }
         }
       end
-      Hashie::Mash.new data['credential']
+      QuietMash.new data['credential']
     end
 
     # Override the meta-programming in this oddball case
