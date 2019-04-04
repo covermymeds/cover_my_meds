@@ -40,5 +40,8 @@ module CoverMyMeds
       @default_host ||= "https://api.covermymeds.com"
     end
 
+    def disable_hashie_log
+      Hashie.logger = Logger.new('/dev/null')
+    end
   end
 end

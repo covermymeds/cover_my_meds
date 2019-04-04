@@ -49,4 +49,12 @@ describe CoverMyMeds::Client do
     client = CoverMyMeds::Client.new(username)
     expect(client.default_host).to eq("https://api.covermymeds.com")
   end
+
+  describe '#disable_hashie_log' do
+    it 'sets the Hashie logger' do
+      client = CoverMyMeds::Client.new(username)
+      client.disable_hashie_log
+      expect(Hashie.logger.instance_variable_get(:@logdev).filename).to eq('/dev/null')
+    end
+  end
 end
