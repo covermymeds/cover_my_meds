@@ -34,5 +34,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "typhoeus"
   spec.add_runtime_dependency "mime-types"
   spec.add_runtime_dependency "hashie", ">= 3.4.0"
-  spec.add_runtime_dependency "activesupport"
+  spec.add_runtime_dependency "activesupport", '>= 4.2.2'
 end
