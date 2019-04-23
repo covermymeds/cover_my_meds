@@ -4,13 +4,14 @@ module CoverMyMeds
   module Error
     describe HTTPError do
 
-      subject { described_class.new status, error_json, http_method, rest_resource }
+      subject { described_class.new status, error_json, http_method, url }
 
       specify "#message" do
-        expect(subject.message).to eq(
-          "#{status}: #{error_json}\n"+
-          "in response to:\n"+
-          "#{http_method.upcase} #{rest_resource}\n"
+        expect(subject.message).to eq(<<-EOS
+404: {"errors":[{"debug":"Nothing to see here, move along."}]}
+in response to:
+POST https://<url>/<route>/?<params>&v=<version>
+        EOS
         )
       end
 
@@ -26,8 +27,8 @@ module CoverMyMeds
         expect(subject.http_method).to eq(http_method)
       end
 
-      specify "#rest_resource" do
-        expect(subject.rest_resource).to eq(rest_resource)
+      specify "#url" do
+        expect(subject.url).to eq(url)
       end
 
       let(:status) { 404 }
@@ -38,8 +39,7 @@ module CoverMyMeds
 
       let(:http_method) { 'post' }
 
-      let(:rest_resource) { 'https://<url>/<route>/?<params>&v=<version>' }
-
+      let(:url) { 'https://<url>/<route>/?<params>&v=<version>' }
     end
   end
 end

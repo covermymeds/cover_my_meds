@@ -38,7 +38,7 @@ module CoverMyMeds
         request.headers.merge! headers
         request.body = block_given? ? yield : {}
       end
-      raise Error::HTTPError.new(response.status, response.body, http_method, conn) unless response.success?
+      raise Error::HTTPError.new(response.status, response.body, http_method, url(host, path, params)) unless response.success?
 
       parse_response response
     end
@@ -48,6 +48,12 @@ module CoverMyMeds
       JSON.parse(response.body)
     rescue JSON::ParserError
       response.body
+    end
+
+    def url(host, path, params)
+      "#{host}#{path}".tap do |url|
+        url << "?#{params.to_query}" if params.present?
+      end
     end
   end
 end

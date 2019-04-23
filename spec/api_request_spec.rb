@@ -6,27 +6,30 @@ describe 'Request' do
   let(:scheme)            { 'https://' }
   let(:host)              { 'api.covermymeds.com' }
   let(:path)              { '/errors' }
+  let(:params)            { Hash(v: 1, key: 'value') }
   let(:json_response)     { '{ "test": "response" }' }
   let(:parsed_json)       { JSON.parse(json_response) }
   let(:non_json_response) { 'This is not JSON' }
 
   let(:client) do
     h, p = "#{scheme}#{host}", path
-    CoverMyMeds::Client.new(api_id, api_secret) do |c|
-      c.define_singleton_method :get_error do
-        request(:get, h, p)
-      end
-    end
+    CoverMyMeds::Client.new(api_id, api_secret)
   end
 
   context 'get request with error' do
+    let(:response_body) { fixture('api_client_error.json') }
+    let(:expected_url) { 'https://api.covermymeds.com/errors?key=value&v=1' }
+
     before do
-      stub_request(:get, "#{scheme}#{host}#{path}").with(basic_auth: [api_id, api_secret])
-      .to_return(status: 400, body: fixture('api_client_error.json'))
+      stub_request(:get, "#{scheme}#{host}#{path}?#{params.to_query}").with(basic_auth: [api_id, api_secret])
+      .to_return(status: 400, body: response_body)
     end
 
-    it 'returns single request' do
-      expect { client.get_error }.to raise_error(CoverMyMeds::Error::HTTPError)
+    it 'raises an error' do
+      expect(CoverMyMeds::Error::HTTPError).to receive(:new)
+        .with(400, response_body, :get, expected_url)
+        .and_call_original
+      expect { client.request(:get, "#{scheme}#{host}", path, params) }.to raise_error(CoverMyMeds::Error::HTTPError)
     end
   end
 
