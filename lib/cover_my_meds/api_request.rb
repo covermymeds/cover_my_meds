@@ -17,6 +17,7 @@ module CoverMyMeds
     def request(http_method, host, path, params={}, auth_type = :basic, &block)
       params  = params.symbolize_keys
       headers = params.delete(:headers) || {}
+      timeout = params.delete(:timeout) || DEFAULT_TIMEOUT
 
       conn = Faraday.new host do |faraday|
         faraday.request  :multipart
@@ -33,7 +34,7 @@ module CoverMyMeds
 
       response = conn.send http_method do |request|
         request.url path
-        request.options.timeout = DEFAULT_TIMEOUT
+        request.options.timeout = timeout
         request.params = params
         request.headers.merge! headers
         request.body = block_given? ? yield : {}
