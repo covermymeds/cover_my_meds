@@ -17,7 +17,7 @@ module CoverMyMeds
           }
         }
       end
-      Hashie::Mash.new data['credential']
+      data['credential']
     end
 
     # Override the meta-programming in this oddball case
@@ -26,7 +26,7 @@ module CoverMyMeds
     end
 
     def delete_credential(npi, version=CURRENT_VERSION)
-      data = credentials_request DELETE, path: npi, params: { v: version }
+      credentials_request DELETE, path: npi, params: { v: version }
     end
   end
 end

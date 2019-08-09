@@ -7,7 +7,7 @@ module CoverMyMeds
     def create_access_token request_id, version=CURRENT_VERSION
       params = {'request_ids[]' => request_id, v: version}
       data = tokens_request POST, params: params
-      Hashie::Mash.new data['tokens'].first
+      data['tokens'].first
     end
 
     def revoke_access_token? token_id, version=CURRENT_VERSION

@@ -52,7 +52,7 @@ describe 'Request' do
 
       it 'follows redirects' do
         request_page = client.get_request_page(request_id, token_id)
-        expect(request_page.data).to eq "You redirected"
+        expect(request_page['data']).to eq "You redirected"
       end
     end
   end

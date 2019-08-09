@@ -88,7 +88,7 @@ describe 'Indicators' do
       it 'includes the additional data' do
         prediction = client.post_indicators(prescription: prescription_payload, patient: patient_payload)
         extra_data.each do |method_name,value|
-          expect(prediction.prescription.send(method_name)).to eq(value)
+          expect(prediction['prescription'].send(:[], method_name.to_s)).to eq(value)
         end
       end
     end
@@ -147,8 +147,8 @@ describe 'Indicators' do
       it 'includes the additional data' do
         prediction = client.search_indicators(prescriptions: prescription_payload)
         extra_data.each do |method_name,value|
-          prediction.prescriptions.each do |p|
-            expect(p.send(method_name)).to eq(value)
+          prediction['prescriptions'].each do |p|
+            expect(p.send(:[], method_name.to_s)).to eq(value)
           end
         end
       end

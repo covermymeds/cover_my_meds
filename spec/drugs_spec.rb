@@ -18,17 +18,17 @@ describe 'Drugs' do
       drugs = client.drug_search drug
       expect(drugs).to be_a Array
       single_drug = drugs.first
-      expect(single_drug.id).to eq                        '093563'
-      expect(single_drug.name).to eq                      'Boniva'
-      expect(single_drug.gpi).to eq                       '30042048100360'
-      expect(single_drug.sort_group).to                   be_nil
-      expect(single_drug.sort_order).to                   be_nil
-      expect(single_drug.route_of_administration).to eq   'OR'
-      expect(single_drug.dosage_form).to eq               'TABS'
-      expect(single_drug.strength).to eq                  '150'
-      expect(single_drug.strength_unit_of_measure).to eq  'MG'
-      expect(single_drug.full_name).to eq                 'Boniva 150MG tablets'
-      expect(single_drug.href).to eq                      'https://staging.api.covermymeds.com/drugs/093563'
+      expect(single_drug['id']).to eq                        '093563'
+      expect(single_drug['name']).to eq                      'Boniva'
+      expect(single_drug['gpi']).to eq                       '30042048100360'
+      expect(single_drug['sort_group']).to                   be_nil
+      expect(single_drug['sort_order']).to                   be_nil
+      expect(single_drug['route_of_administration']).to eq   'OR'
+      expect(single_drug['dosage_form']).to eq               'TABS'
+      expect(single_drug['strength']).to eq                  '150'
+      expect(single_drug['strength_unit_of_measure']).to eq  'MG'
+      expect(single_drug['full_name']).to eq                 'Boniva 150MG tablets'
+      expect(single_drug['href']).to eq                      'https://staging.api.covermymeds.com/drugs/093563'
     end
   end
 
@@ -44,8 +44,8 @@ describe 'Drugs' do
 
     it 'makes methods from json' do
       drug = client.get_drug drug_id
-      expect(drug.id).to        eq '001002'
-      expect(drug.full_name).to eq 'Ambien 10MG tablets'
+      expect(drug['id']).to        eq '001002'
+      expect(drug['full_name']).to eq 'Ambien 10MG tablets'
     end
   end
 end

@@ -54,17 +54,17 @@ describe 'Credential' do
     let!(:credential) { client.create_credential(npi: npi, callback_url: callback_url, callback_verb: callback_verb, fax_numbers: [fax_number], contact_hint: contact_hint) }
 
     it 'has the NPI' do
-      expect(credential.npi).to eq(npi)
+      expect(credential['npi']).to eq(npi)
     end
 
     it 'has an array of fax numbers' do
-      expect(credential.fax_numbers).to eq([fax_number])
+      expect(credential['fax_numbers']).to eq([fax_number])
     end
 
     it 'has the contact hint' do
-      expect(credential.contact_hint.email).to eq('charles@foo.dev')
-      expect(credential.contact_hint.practice.name).to eq('McFoo Medical Clinic')
-      expect(credential.contact_hint.practice.address.city).to eq('Columbus')
+      expect(credential["contact_hint"]["email"]).to eq('charles@foo.dev')
+      expect(credential["contact_hint"]["practice"]["name"]).to eq('McFoo Medical Clinic')
+      expect(credential["contact_hint"]["practice"]["address"]["city"]).to eq('Columbus')
     end
   end
 

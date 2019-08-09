@@ -16,8 +16,8 @@ describe 'Access Token' do
 
     it 'returns new token' do
       token = client.create_access_token(request_id)
-      expect(token.id).to eq 'nhe44fu4g22upqqgstea'
-      expect(token.request_id).to eq request_id
+      expect(token['id']).to eq 'nhe44fu4g22upqqgstea'
+      expect(token['request_id']).to eq request_id
     end
   end
 

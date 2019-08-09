@@ -9,7 +9,7 @@ module CoverMyMeds
       data = indicators_request POST, params: { v: version, headers: { content_type: "application/json" } } do
         params.to_json
       end
-      Hashie::Mash.new(data)
+      data
     end
 
     def search_indicators(prescriptions: prescriptions(), patient: {}, payer: {}, prescriber: {}, version: CURRENT_VERSION)
@@ -17,7 +17,7 @@ module CoverMyMeds
       data = indicators_request POST, path: 'search/', params: { v: version, headers: { content_type: "application/json" } } do
         params.to_json
       end
-      Hashie::Mash.new(data)
+      data
     end
 
   end

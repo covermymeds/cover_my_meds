@@ -8,7 +8,7 @@ module CoverMyMeds
       data = consumers_request POST, params: { v: version } do
         { 'consumer' => consumer_params }
       end
-      Hashie::Mash.new(data['root_consumer'])
+      data['root_consumer']
     end
   end
 end

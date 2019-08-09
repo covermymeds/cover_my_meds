@@ -18,11 +18,11 @@ describe 'Request' do
 
     it 'returns single request' do
       request = client.get_request(token_id)
-      request.tokens.first.id = token_id
-      expect(request.patient.first_name).to eq'Justin'
-      expect(request.patient.last_name).to eq 'Rolston'
-      expect(request.patient.date_of_birth).to eq '01/01/1900'
-      expect(request.prescription.drug_id).to eq '093563'
+      request['tokens'].first['id'] = token_id
+      expect(request['patient']['first_name']).to eq'Justin'
+      expect(request['patient']['last_name']).to eq 'Rolston'
+      expect(request['patient']['date_of_birth']).to eq '01/01/1900'
+      expect(request['prescription']['drug_id']).to eq '093563'
     end
   end
 
@@ -49,7 +49,7 @@ describe 'Request' do
   describe 'create request' do
     let(:new_request_data) do
       request_data = client.request_data
-      request_data.patient.first_name = 'Justin'
+      request_data['patient']['first_name'] = 'Justin'
       request_data
     end
 
@@ -61,8 +61,8 @@ describe 'Request' do
 
     it 'creates request' do
       data = client.create_request new_request_data
-      expect(data.id).to eq 'VA4EG7'
-      expect(data.patient.first_name).to eq new_request_data.patient.first_name
+      expect(data['id']).to eq 'VA4EG7'
+      expect(data['patient']['first_name']).to eq new_request_data['patient']['first_name']
     end
   end
 
@@ -86,7 +86,7 @@ describe 'Request' do
       end
 
       it "returns an object with the data" do
-        expect(pa_request.id).to eq request_id
+        expect(pa_request['id']).to eq request_id
       end
     end
 
@@ -127,7 +127,7 @@ describe 'Request' do
 
     it "sends the request" do
       data = client.archive_request request_id, token_id, archive_params
-      expect(data.id).to eq(request_id)
+      expect(data['id']).to eq(request_id)
     end
   end
 end

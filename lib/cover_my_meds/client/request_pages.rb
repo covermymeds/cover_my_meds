@@ -9,7 +9,7 @@ module CoverMyMeds
       request_page = request_pages_request(
         GET, params: params, path: request_id, auth: :bearer
       )
-      Hashie::Mash.new(request_page["request_page"])
+      request_page["request_page"]
     end
   end
 end
