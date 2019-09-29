@@ -20,7 +20,7 @@ module CoverMyMeds
     include CoverMyMeds::RequestPages
     include CoverMyMeds::Indicators
 
-    # use the block to set module privided instance variables:
+    # use the block to set module-provided instance variables:
     # ```ruby
     # Client.new('mark') do |client|
     #   client.contacts_path = '/'
@@ -28,7 +28,7 @@ module CoverMyMeds
     # end
     # ```
     #
-    # Defaults are to proudction to make it easy for external gem consumers.
+    # Defaults to production to make it easy for external gem consumers.
     def initialize(username, password=nil)
       @username = username
       @password = password

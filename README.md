@@ -116,7 +116,7 @@ new_request = client.request_data
 request_data.patient.first_name = 'John'
 
 request = client.create_request new_request
-request.patient.first_name      # => 'Jonhn'
+request.patient.first_name      # => 'John'
 ```
 
 
