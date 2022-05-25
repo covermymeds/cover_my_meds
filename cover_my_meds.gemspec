@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "railties"
 
-  spec.add_runtime_dependency "faraday", ">= 0.11", "< 2.0"
+  spec.add_runtime_dependency "faraday", ">= 1.0", "< 2.0"
   spec.add_runtime_dependency "faraday_middleware"
   spec.add_runtime_dependency "typhoeus"
   spec.add_runtime_dependency "mime-types"
