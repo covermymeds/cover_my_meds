@@ -27,7 +27,7 @@ module CoverMyMeds
       end
       case auth_type
       when :basic
-        conn.basic_auth @username, @password
+        conn.request :basic_auth, @username, @password
       when :bearer
         conn.authorization :Bearer, "#{@username}+#{params.delete(:token_id)}"
       end
