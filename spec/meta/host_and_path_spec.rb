@@ -34,7 +34,7 @@ describe AnyClass do
     end
   end
 
-  describe "the added resouce-partially-applied method for web requests" do
+  describe "the added resource-partially-applied method for web requests" do
     it "should proxy for #request" do
       expect(subject).to receive(:request).with(:GET, "http://default-host.com", "/example-api-resources/", {v: 1})
       subject.example_api_resources_request(:GET, params: {v: 1})
