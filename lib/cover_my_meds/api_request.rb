@@ -1,14 +1,13 @@
 require 'faraday'
-require 'faraday_middleware'
-require 'typhoeus'
-require 'typhoeus/adapters/faraday'
+require 'faraday/typhoeus'
+require 'faraday/multipart'
+require 'faraday/follow_redirects'
 require 'json'
 require 'hashie'
 require 'active_support/core_ext/object/to_param'
 require 'active_support/core_ext/object/to_query'
 require 'cover_my_meds/error'
 require 'mime-types'
-
 
 module CoverMyMeds
   module ApiRequest
@@ -19,17 +18,18 @@ module CoverMyMeds
       headers = params.delete(:headers) || {}
       timeout = params.delete(:timeout) || DEFAULT_TIMEOUT
 
-      conn = Faraday.new host do |faraday|
+      conn = Faraday.new(host) do |faraday|
         faraday.request  :multipart
         faraday.request  :url_encoded
         faraday.response :follow_redirects
         faraday.adapter  :typhoeus
       end
+
       case auth_type
-      when :basic
-        conn.request :basic_auth, @username, @password
-      when :bearer
-        conn.authorization :Bearer, "#{@username}+#{params.delete(:token_id)}"
+        when :basic
+          conn.set_basic_auth(@username, @password)
+        when :bearer
+          headers['Authorization'] = "Bearer #{@username}+#{params.delete(:token_id)}"
       end
 
       response = conn.send http_method do |request|

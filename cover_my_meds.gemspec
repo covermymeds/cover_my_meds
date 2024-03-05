@@ -1,7 +1,5 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'cover_my_meds/version'
+require_relative 'lib/cover_my_meds/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "cover_my_meds"
@@ -12,26 +10,23 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{CoverMyMeds Public API}
   spec.description   = %q{The public version of CoverMyMeds API}
   spec.homepage      = "https://github.com/covermymeds/cover_my_meds"
-
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler"
-  spec.add_development_dependency "rspec", ">= 3.2"
-  spec.add_development_dependency "rspec-junklet", ">= 2.0"
-  spec.add_development_dependency "webmock", "~> 2.0"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec-junklet"
+  spec.add_development_dependency "webmock"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "dotenv"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "railties"
 
-  spec.add_runtime_dependency "faraday", ">= 1.0", "< 2.0"
-  spec.add_runtime_dependency "faraday_middleware"
-  spec.add_runtime_dependency "typhoeus"
-  spec.add_runtime_dependency "mime-types"
-  spec.add_runtime_dependency "hashie", ">= 3.4.0"
-  spec.add_runtime_dependency "activesupport", ">= 4.2.2"
+  spec.add_runtime_dependency "faraday", "~> 2.9.0"
+  spec.add_runtime_dependency "faraday-follow_redirects", "~> 0.3.0"
+  spec.add_runtime_dependency "faraday-multipart", "~> 1.0.4"
+  spec.add_runtime_dependency "faraday-typhoeus", "~> 1.1.0"
+  spec.add_runtime_dependency "mime-types", "~> 3.5.2"
+  spec.add_runtime_dependency "hashie", "~> 5.0.0"
+  spec.add_runtime_dependency "activesupport", "~> 7.0.8"
 end
